@@ -1,0 +1,16 @@
+﻿{
+  "Id": "-j6fFWLB3E2_PxSOS-l3ig",
+  "Reference": "HLXiEbo_V0mRw1lnkGk7zg/-j6fFWLB3E2_PxSOS-l3ig",
+  "ParentRef": "HLXiEbo_V0mRw1lnkGk7zg/YuCcTKXxr0WIBHMcTn6uUQ",
+  "Name": "Button - Toggle Full Screen",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2023-01-10T09:04:37.1480592Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-10T09:05:56.2420938Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

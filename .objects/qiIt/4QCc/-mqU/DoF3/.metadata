@@ -1,0 +1,14 @@
+﻿{
+  "Id": "DoF3rk3qAkSJBV2Tt8uo9w",
+  "Reference": "HLXiEbo_V0mRw1lnkGk7zg/DoF3rk3qAkSJBV2Tt8uo9w",
+  "ParentRef": "HLXiEbo_V0mRw1lnkGk7zg/-mqUTJ3sKk-erDnDqxv6Rg",
+  "Name": "Button_Search",
+  "Description": "Search Button on Home Screen of SAP Fiori",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Created": "2023-01-10T05:16:53.0972823Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-10T05:16:53.0972823Z"
+}

@@ -1,0 +1,337 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="UnfoundReferenceFlow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_dt_UnfoundReferences" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_strUnfoundRefText" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,1008</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>UnfoundReferenceFlow_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="60">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="100">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;UnfoundReferenceFlow&#xA;&#xA;[Description]:-&#xA;This workflow will enter details of Unfound References in On Account Tab of SAP.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_dt_UnfoundReferences - DataTable containing References that are not found in SAP.&#xD;&#xA;in_strUnfoundRefText - String containing Unfound Reference Text to enter in SAP.&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="UnfoundReferenceFlow" sap:VirtualizedContainerService.HintSize="704,943" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:String" Name="strAccount" />
+      <Variable x:TypeArguments="x:String" Name="strDCustomer" />
+      <Variable x:TypeArguments="x:String" Name="strUnfoundReferences">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">40,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">100,40 130,40 130,35.019999999999996 200,35.019999999999996</av:PointCollection>
+        <x:Double x:Key="Width">670</x:Double>
+        <x:Double x:Key="Height">623.5</x:Double>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID6</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,129.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,52</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,181.5 300,236.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Extract DCustomer &amp; Account from SAP" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="bc3f536e-ee1c-4013-8a90-f84d7f6dfb7e" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NGetText DisplayName="Get Text 'Field - D Customer'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="bc3f536e-ee1c-4013-8a90-f84d7f6dfb7e" TextString="[strDCustomer]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=inplace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="4ytLVqHztkigiU_khklZrw" DesignTimeRectangle="179, 559, 108, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Field - D Customer'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl tableRow='1' tag='INPUT' aaname='Account' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl type='text' tag='INPUT' aaname='Account' class='lsField__input' /&gt;" Guid="eba54756-30de-4484-b37e-7533668e1483" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHAAAAAcCAYAAAC51jtqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ3SURBVGhD7ZehkqswFIbzFpHIysrIyshKJLISySNEIlcikZVIJDKyEomMuTPMqn8PAbpbCoXuXHFzyTdzOkMTjsjHOUmY+fMJH+4GK8sSPtyMB4Eet/ACHccLdBwv0HG8QMfxAh3HC3Sc9wWaAhfOoKrhecDoDBd5AGcMjB8QphXMMGYxGtlF4kDvMsZxCFNUDxOA9pYjlgGNMwQiwoduh5GBDTn2xpsCW5RxAD4VaEokMkKmDc3onmmhQw6Z1XaY/kCZSESZhuknQGchuMwwzug/DAFV9kZMqSD4BcVd0IYcO+QtgW2VQFwKXNVzBU5p8jPYq0lNjjNTGGc0V5LxMJ8+loTjnDfD8wyTHHtku8C2QiJCXGk9qzWBpkIqqZqmLfCOQZVKCKX7iiW6nFNZrz+C5xx7ZKPAFlqdEOZ9s1oUWCm7fzF2QlzMNbYKyo4znOLiofU9VyCg0yPYOcej1uUce2SbQJ1C0EKOi7VcgS2MMWhuBRQdRkbhP2lp3DQ3FEoiCL9z2nbIQ7uPdthDkSCB1LKn55TFHDtkg0CNVEjczyPEagvtqDOcjim9vUSN7HRE+mOC0R8ID5yqK4CMc+hrTFW5nGEux95YF3hvizPxymInkKsVgZz2yeFxhq6FxuWrHW49x//OusAZniqwzhHJBEXdXyPa4RpxpEn98tfII4mE9kV7BWiHK8CRTpCjn5YqPaQcTf+HvUYI+gDG8S05dsjfEUjUhUIk+ks4CwQiNTlg1LQvRgKBrd4AIlIkfBgbqKllSttCFy7pG3LsjV8J9Pw7eIGO4wU6jhfoOF6g43iBjuMFOs6TQB/uhRXY/fhwNT7xBZ0WsN/Q2YYTAAAAAElFTkSuQmCC" InformativeScreenshot="1215a3107f8da237ac0d7e447fb2d86a.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/0KwFVcIfL0CyFPjpZqWxJw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Edit Bank Statement Item*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                </uix:NGetText.Target>
+              </uix:NGetText>
+              <uix:NClick ClickType="Single" DisplayName="Click 'Tab - On Account'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bc3f536e-ee1c-4013-8a90-f84d7f6dfb7e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="AzAN_UhEuUSc7vQnjHYSRw" DesignTimeRectangle="245, 535, 72, 32" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Tab - On Account'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='tab' aaname='On Account' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='tab' aaname='On Account' tag='DIV' type='' class='lsTbsv5-ItemTitle' check:text='On Account' /&gt;" Guid="0ab8a747-3329-474d-9f2a-cdeee28dc7e4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEwAAAAkCAYAAAAjMNwcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANrSURBVGhD7ZbPaxpBFMf9n+biXppLcomX5BJzSDy0h6AQCEgIOQQJIkFK6S0QEIQFYSEgCEIhRUgQEREJIkGICEpAWdAWbA9tKXz7Zn9ld7OJO7SHFEb4wrpv9s3s533nzUa+fv8JqfCSwAQlgQlKAhOUBCYoCUxQEpigJDBBSWCCksAEJYEJSgITlAQmqABgE1wXj7CzpoAxhuhaAuliE8Mn48TVOOM5t6HeBcf/B/mAjaAlFUTjJ1BbIzxMZ+i3NBzH6V6yjL5nrKDmTWSUI2ROY9gq3QePeU1qFbBK7+w3igfY8DIFFsvjeu4dxF82F2PYr8y89wWk17JgpzfQ7zRsxQpoB4x5VWrlwV4GNkE5yZ6tfre0TQmqRgID7NkN2sUUVhVG22wFb4s96L5nHjVD9ZAhU1vQ9T3UeAznt94x/Voee1YbeLN5gELLLs4MjRK1iBU+j4LV3SzKA/s5ah8XB9hwxbQ7PgePdZBjKWhjeyyJQ2B5NPj1uIw9ur66VR/nfaeizc1ijOM5Te1dTpwcLmB8AoZcy/7vU52SKB+NyQxgyjZyNdq28wWGfFL2FIKjaRX7LIsry7n9UgLrFz0nzt0XVVJQbycEnfLRdkifNfFAsS6NZZv07ICDWKBbOcExFZUXp32xCbZbQGPK8/DYEdZp21eN/2GAKdiiwvenC+jjHgpkGGddyx1mAat7BzjyA/Mkm1Dvo0pUHivh1kPlwNyO9r2Bhh3FWrjlvmBn93BOrcB0ZnDMu17uXob0J+7OMMC8cfO9zF0UAliILXn42ai6uSU7rrgFzGVdf8xtcVMKMnUOwoxnAgvFXzoB1dmCy2LudYQBZhfNlMcIy4FZTgjR9IWAcTexE1THM+PUtdUuJhA9bZLr/s5h3pjfYd5PGOPg+ZfAwn5WiAAznOnejrb4aalkjeJ4epjREzWkD8353D1Mn9N6+OHwoWPkM2NUYLuH0bqiVk7+Luouwwb1wiHl1Ac3yPD3EAEWV6k/UoFdBvIB41r+4Roe2EsOMd1gx/qVrDMnPyXP63YuOiWLz52EvliSTj3XFtWdE5DHCrhuuSAtAzbv4D0B5utx9+YAYFIvSQITlAQmKAlMUBKYoCQwQUlggpLABCWBCSoy0r9BKrwi3dEXSIVX5Mev35AKrwjkT+AH/AGtUq6UMi3fVgAAAABJRU5ErkJggg==" InformativeScreenshot="de706bfb216e0e8543b75758e354394c.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/XzSknKusIE6-cfNVX2rFfQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NGetText DisplayName="Get Text 'Field - Account'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="bc3f536e-ee1c-4013-8a90-f84d7f6dfb7e" TextString="[strAccount]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=inplace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="l2B4sJVfsEysp2sXsQuDBw" DesignTimeRectangle="141, 626, 105, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Field - Account'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl tableCol='3' tag='TABLE' /&gt;&lt;webctrl name='InputField' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='application-BankStatementPP-display' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl name='InputField' type='' tag='SPAN' class='lsField__input' aaname='55263' check:innerText='55263' /&gt;" Guid="78328f2c-c5da-4ac3-8fb3-3de794b93bb4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG0AAAAUCAYAAACH1bNfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK0SURBVGhD7Zchk6QwEIXzLyJHIlciV0aOjEQikfwEJHIkEolEIpFIZNRWzlE1YiPfdRKYgbnZO+bUsvBVpQpokpnK43V32K/hEx8fHzj4/lidrtcrDtE2xCHaBjlE2yCHaBtkpWgK5ZmBsYeRtWO8RfoYo3Eu9RgHhjaHDLh7fgoj5O0wRjymL5GIk4vzQC7jQ48yEQi4X/fZ/D2xUrQWGTuj6AcMw2yYMaxLnFmKeh6bxU2TgPN3pLVyz1WdImQChfJxDDViziGLDtrGmwxSFuhd0KDNBURcotN+XT//jNk3sSteEu3LTXKiZfTWc4YmRVJOClm8c+Pau0UVAiyqsN479v8w3Iy+M14SLS8yiJNNUSeIpES/cFqMSxH5FMYDyLz9iwgd8jeOrLPXGpVkkNVa2xho67QwQzf9/s5YJ5quIOnLDtMayqY91eIiOXhce2G6DJzd05vuK6QhvZ87VR6gdJeF4LIkv1m0c11atchlQOs8qWkO/56rl0GCeqep0bLSaZTiFNWj8dqhCggmMRlE94rkuGMoJXJObhjvPQZ9IcHJJe3t5VGMMEbZDTBmqlkhHjU39oPRPepMgJ9iqqFjYGesFu1PXq9zqhwFW2y2F+28qHkGTbLsPpcMqKJXUurP4v9FI6e9Ux376mu3HSN7y29Os81IyCUW2ox0+Rveb62kZS6aoXhy7zQd/xL1Z7NONFXTGSrCpfUt+6AaZIJqWtLQ9tEWdhdIkaLqtYvrrkRMNU2MO23azLX4F0p/bv40phRpUy0JWnR+vkuPdO+N5GsgC+lIoew8jb56nj73wkqnUS2qMkShP/yyU4gobyixTQxoLzHEeHjmgaAWvx9r4KyBeByznn1x+BYJyltraqH18wih61yPw/VK0Q6+E4doG+QQbYMcom2QQ7QN4kW74jelN4vJOq3jmQAAAABJRU5ErkJggg==" InformativeScreenshot="ae9459ab7192d6f95d13445e62a810b0.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/pozE3h1TDECH8eDJMUZNfg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                </uix:NGetText.Target>
+              </uix:NGetText>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" ContentHash="SYrOvqi_ckmALw6TpKXOrg" IconBase64="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" InformativeScreenshot="d4142db22ede2347f6348133d509a4ac.jpg" Reference="HLXiEbo_V0mRw1lnkGk7zg/YuCcTKXxr0WIBHMcTn6uUQ" Selector="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" Url="https://launchpad-sp.orica.net/fiori#BankStatementPP-display" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+      <FlowStep.Next>
+        <FlowDecision x:Name="__ReferenceID0" Condition="[strAccount.Trim=strDCustomer.Trim]" DisplayName="Account= DCustomer?" sap:VirtualizedContainerService.HintSize="127,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <av:Point x:Key="ShapeLocation">236.5,236.5</av:Point>
+              <av:Size x:Key="ShapeSize">127,87</av:Size>
+              <av:PointCollection x:Key="TrueConnector">236.5,280 120,280 120,349.5</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">363.5,280 393.5,280 393.5,265.5 470,265.5</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <FlowDecision.True>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">20,349.5</av:Point>
+                  <av:Size x:Key="ShapeSize">200,94</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">120,443.5 120,500.5</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Concatenate Reference Numbers" DataTable="[in_dt_UnfoundReferences]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,172" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Concatenate Unfound References" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strUnfoundReferences]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[CurrentRow("References").ToString+","+strUnfoundReferences]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachRow>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">20,500.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,123</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">220,562 250,562 250,550.52 350,550.52</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence sap2010:Annotation.AnnotationText="Enter Details on First Row of 'On Account' tab" DisplayName="Enter Details on On AccountTab" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="434,944" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="6f9d1f3d-52a6-47f9-aa04-68e4cec27222" Version="V2">
+                      <uix:NApplicationCard.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,727" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NClick ClickType="Double" DisplayName="Click 'Input - Amount'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f9d1f3d-52a6-47f9-aa04-68e4cec27222" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap(cz1TSUQlM2FBTk9OJTNhdXN3aWVteGNpdm0wMF9FTVhfMDAlM2FuZ3dySERWdXh1dHBTbXY4M2QyUmVNVTRVV25UMWk0ckF2NlZhVzhnLUFUVA==)/bc/gui/sap/its/webgui/" ContentHash="6knU4giCd0m8ZqRh1emW0w" DesignTimeRectangle="497, 620, 108, 19" DesignTimeScaleFactor="0.800000011920929" ElementType="Text" FriendlyName="'Input - Amount'" FullSelectorArgument="&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl tableCol='3' tag='TABLE' /&gt;&lt;webctrl name='InputField' tableRow='1' tableCol='9' /&gt;" FuzzySelectorArgument="&lt;webctrl id='application-BankStatementPP-display' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl name='InputField' type='text' tag='INPUT' class='lsField__input' aaname='' /&gt;" Guid="978f5ad4-5ceb-4365-ae84-886d0d99886f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHAAAAAXCAYAAADTEcupAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGJSURBVGhD7ZehroMwFIZ5EyRyshKJRE4ikcg9QuUkEomcrEQikciqBUkyU/nfUyi7G1tyFTc5yfmSs/VQpr79zWnknMP9fof/luJTm7PIL6T4VgTCLwReeGePx0MEckUEMkcEMkcEMkcEMkcEHobDUJ+RJAlVBt3N4fk71lTIlncSFM1IvwpYgypbnydFg/G58Y4IPIrhClUZLNpcD60K3PYO5xuKrMa4NBbtWeE6LBu4FRnqdQO2PUOtGx+IwIMYridc+tAQtklRde8xmk2JvLWhI89dhbShfjYo85aUBlyHKm1++xdE4EH0+hTStDK1OcmaQrfin5XmJZa9RqTJ+tQiL0N6FyjBkabPT0TgQYhA5uyPUN//dYT6/usR6ns5Qv+Z3RBzUSW2sE2jXafN/RCTqzC47IeYHGprdojAw3AYm4KuATHiOEc9hPT5NMU0kYbTdO40XSP8OzTkmJeMzR00XSPiOEZKf4Rv6fOIQOaIQOaIQOaIQOaIQOY8BfqFFN9aEihwBfgBNao+yUBV2Q0AAAAASUVORK5CYII=" InformativeScreenshot="45be9c5fc3933b42dffa0f741fcd3d21.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/Lu5TbpcsfUOhYLxul_JLow" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick ClickType="Single" DisplayName="Click 'Input - Text'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f9d1f3d-52a6-47f9-aa04-68e4cec27222" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap(cz1TSUQlM2FBTk9OJTNhdXN3aWVteGNpdm0wMF9FTVhfMDAlM2FuZ3dySERWdXh1dHBTbXY4M2QyUmVNVTRVV25UMWk0ckF2NlZhVzhnLUFUVA==)/bc/gui/sap/its/webgui/" ContentHash="ezs4FOY6vUKIZ_vOX6w1Tw" DesignTimeRectangle="658, 620, 245, 19" DesignTimeScaleFactor="0.800000011920929" ElementType="Text" FriendlyName="'Input - Text'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl tableCol='3' tag='TABLE' /&gt;&lt;webctrl name='InputField' tableCol='11' tableRow='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl name='InputField' tag='INPUT' type='text' class='lsField__input' aaname='' /&gt;" Guid="57bb399b-6c44-4c32-a9d2-a4e980029f38" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPkAAAAXCAYAAADJAeliAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACCSURBVHhe7dWxCcQwFAVB9V+gOnCoxIlDGZnjilhm4PHVwKLxPM++rmufa2adzTm/O07gZtbduO/7ewAt5ydfa4kcqkQOcSKHOJFDnMghTuQQJ3KIEznEiRziRA5xIoc4kUOcyCFO5BAncogTOcSJHOJEDnH/yE/gZtbd+EUPJO39AgPTYi7H/UM8AAAAAElFTkSuQmCC" InformativeScreenshot="930e56a809cd6fbbb2e96e2015b71ec2.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/wCTc29uQ4k-zyjL8rOMSnw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Input - Text'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="338,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="6f9d1f3d-52a6-47f9-aa04-68e4cec27222" Text="[in_strUnfoundRefText+&quot; -&quot;+strUnfoundReferences]" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap(cz1TSUQlM2FBTk9OJTNhdXN3aWVteGNpdm0wMF9FTVhfMDAlM2FuZ3dySERWdXh1dHBTbXY4M2QyUmVNVTRVV25UMWk0ckF2NlZhVzhnLUFUVA==)/bc/gui/sap/its/webgui/" ContentHash="ezs4FOY6vUKIZ_vOX6w1Tw" DesignTimeRectangle="658, 620, 245, 19" DesignTimeScaleFactor="0.800000011920929" ElementType="Text" FriendlyName="'Input - Text'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl tableCol='3' tag='TABLE' /&gt;&lt;webctrl name='InputField' tableCol='11' tableRow='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl name='InputField' tag='INPUT' type='text' class='lsField__input' aaname='' /&gt;" Guid="57bb399b-6c44-4c32-a9d2-a4e980029f38" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPkAAAAXCAYAAADJAeliAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACCSURBVHhe7dWxCcQwFAVB9V+gOnCoxIlDGZnjilhm4PHVwKLxPM++rmufa2adzTm/O07gZtbduO/7ewAt5ydfa4kcqkQOcSKHOJFDnMghTuQQJ3KIEznEiRziRA5xIoc4kUOcyCFO5BAncogTOcSJHOJEDnH/yE/gZtbd+EUPJO39AgPTYi7H/UM8AAAAAElFTkSuQmCC" InformativeScreenshot="930e56a809cd6fbbb2e96e2015b71ec2.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/wCTc29uQ4k-zyjL8rOMSnw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                              </uix:NTypeInto.Target>
+                            </uix:NTypeInto>
+                          </Sequence>
+                        </ActivityAction>
+                      </uix:NApplicationCard.Body>
+                      <uix:NApplicationCard.TargetApp>
+                        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" ContentHash="SYrOvqi_ckmALw6TpKXOrg" IconBase64="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" InformativeScreenshot="d4142db22ede2347f6348133d509a4ac.jpg" Reference="HLXiEbo_V0mRw1lnkGk7zg/YuCcTKXxr0WIBHMcTn6uUQ" Selector="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" Url="https://launchpad-sp.orica.net/fiori#BankStatementPP-display" />
+                      </uix:NApplicationCard.TargetApp>
+                    </uix:NApplicationCard>
+                  </Sequence>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">350,524.52</av:Point>
+                          <av:Size x:Key="ShapeSize">200,52</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Ended UnfoundReferenceFlow workflow&quot;]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:LogMessage>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowDecision.True>
+          <FlowDecision.False>
+            <FlowStep x:Name="__ReferenceID3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">470,239.50000000000003</av:Point>
+                  <av:Size x:Key="ShapeSize">200,52</av:Size>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Throw DisplayName="Throw BE" Exception="[new BusinessRuleException(&quot;Account Mismatch in SAP&quot;)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="Throw_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Throw>
+            </FlowStep>
+          </FlowDecision.False>
+        </FlowDecision>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <FlowStep x:Name="__ReferenceID6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,9.02</av:Point>
+          <av:Size x:Key="ShapeSize">200,52</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,61.019999999999996 300,129.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Started UnfoundReferenceFlow Workflow&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID5</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
+  </Flowchart>
+</Activity>

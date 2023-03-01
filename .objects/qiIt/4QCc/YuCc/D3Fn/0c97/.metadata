@@ -1,0 +1,13 @@
+﻿{
+  "Id": "0c97vbU8Mk2qiEvICI2Oow",
+  "Reference": "HLXiEbo_V0mRw1lnkGk7zg/0c97vbU8Mk2qiEvICI2Oow",
+  "ParentRef": "HLXiEbo_V0mRw1lnkGk7zg/D3Fn12ozEkSgy9VPh-ovcg",
+  "Name": "Input - Amount",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Created": "2023-01-12T07:10:56.2811104Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-12T07:10:56.2811104Z"
+}

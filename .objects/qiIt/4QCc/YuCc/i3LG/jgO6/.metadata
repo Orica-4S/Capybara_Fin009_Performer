@@ -1,0 +1,16 @@
+﻿{
+  "Id": "jgO6gsYQ3Eid7umdo9d10w",
+  "Reference": "HLXiEbo_V0mRw1lnkGk7zg/jgO6gsYQ3Eid7umdo9d10w",
+  "ParentRef": "HLXiEbo_V0mRw1lnkGk7zg/i3LGRTeWTkOl34u2rsKWcw",
+  "Name": "Input - Amount",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2023-01-12T05:15:57.8089123Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-12T05:17:55.8062474Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

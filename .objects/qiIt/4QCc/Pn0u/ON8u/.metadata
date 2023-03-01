@@ -1,0 +1,16 @@
+﻿{
+  "Id": "ON8u3CFJvkCmyEnQZXlS5w",
+  "Reference": "HLXiEbo_V0mRw1lnkGk7zg/ON8u3CFJvkCmyEnQZXlS5w",
+  "ParentRef": "HLXiEbo_V0mRw1lnkGk7zg/Pn0uolhZXUW0QN3kiHED4g",
+  "Name": "Assign Payment Amounts",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2023-02-15T11:47:06.9104653Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-02-15T11:47:53.6079017Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

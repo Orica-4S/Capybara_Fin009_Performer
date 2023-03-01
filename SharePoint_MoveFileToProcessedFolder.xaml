@@ -1,0 +1,328 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SharePoint_MoveFileToProcessedFolder" this:SharePoint_MoveFileToProcessedFolder.in_strRemitsFolder="NEW Remits" this:SharePoint_MoveFileToProcessedFolder.in_strGiroFolder="GIRO" this:SharePoint_MoveFileToProcessedFolder.in_ProcessedRemitsFolder="PROCESSED Remits" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="booGiro" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_strFileName" Type="InArgument(x:String)" />
+    <x:Property Name="in_strRemitsFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_strGiroFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_ProcessedRemitsFolder" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,1029</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SharePoint_MoveFileToProcessedFolder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;SharePoint_MoveFileToProcessedFolder&#xA;&#xA;[Description]:-&#xA;This workflow will move File from one Folder to different folder in SharePoint.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_strFileName - String containing File Name&#xA;in_strRemitsFolder - String containing Remit Folder Name&#xA;in_strGiroFolder - String containing Giro Folder Name&#xA;in_ProcessedRemitsFolder - String containing Processed Folder Name&#xA;in_booGiro - Boolean containing Flag whether it is Giro Scenario or not&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="SharePoint_MoveFileToProcessedFolder" sap:VirtualizedContainerService.HintSize="634,964" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:String" Name="strFileName" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID2</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,52</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,179.5 300,238.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started SharePoint_MoveFileToProcessedFolder workflow&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID0">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">200,238.5</av:Point>
+              <av:Size x:Key="ShapeSize">200,52</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,290.5 300,340.5</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="MoveFileToProcessedFolder" sap:VirtualizedContainerService.HintSize="440,565" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch.Try>
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Move File to Processed folder" sap:VirtualizedContainerService.HintSize="241,25" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V2">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,2766" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Button - CAPYBARA Remit Details'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="8TOr8pvz3UuCW7Ax7OvKgg" DesignTimeRectangle="207, 318, 203, 24" DesignTimeScaleFactor="1" FriendlyName="'Button - CAPYBARA Remit Details'" FullSelectorArgument="&lt;webctrl tag='DIV' aaname='CAPYBARA Remit Details' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='DIV' aaname='CAPYBARA Remit Details' type='' class='ms-TooltipHost tooltipHost_db32a283 root-108' check:text='CAPYBARA Remit DetailsCAPYBARA Remit Details' /&gt;" Guid="6c756dde-bc32-4fc2-b82c-a7e31341fc91" ImageBase64="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" InformativeScreenshot="b6c102ea2c8e3ee3abf8daaf146d9896.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/xeAN60kEK0K6rAz31mkY4A" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Field - Search this library'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details%2FNEW%20Remits%2FGIRO&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="qOau7z4TBU6xphfGK85Z4w" DesignTimeRectangle="501, 87, 424, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Field - Search this library'" FullSelectorArgument="&lt;webctrl tag='INPUT' placeholder='Search this library' type='search' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' placeholder='Search this library' type='search' class='XZD9Ly2tGN4K6ZmrPDpaa _1kB6UxIkPBEergyFfpKqWJ o365sx-searchBoxInactive' aaname='' /&gt;" Guid="d53a506f-2065-4d5f-a7b8-beec8b53cead" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAawAAAAkCAYAAADVXA6tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO6SURBVHhe7dpNTtwwGMbxnKYVFE7Cgl2rSuVjAFVCvUBuUKmqqlyCC+QESGzasKzoAWbJh8qajeuPTPLacZIZIabO8F/81E7s2E4W7zP2kGU7pwoAgOTsnvmy7SMFAEA6jp2dEz+4np6eFAAAqbi9f1SXv27U3vl3lb2btaEV6wwAQAr2v/xwoUVgAQBSdnX9xx0Tml1WrAMAACm4e3hU2dah3mWdEFgAgLRlWwcEFgAgfdnWJwILAJA+AgsAMAkEFgBgEggsAMAkEFgAgEkgsAAAk9AbWPMyV7PZrJGXc6/9pdn5iyratpxKFbNclfNYmzYvVT7UHjVXZT5TReU+V4V+N80aR+YDADxLNLD8QmzoQl0+JzxWt3Jg2QAqVNVce4kA8QPLR2ABwEuKBNZQUV4fAgsAIC25wwpUhTguDIq01yaPEutiX5pg0W15qeb1PXa+5h4XOovAkm29x5LBnG7tdYBU9XzWQKDZwGvHiIeSH1h+qC7GM/8uxpHvJv78doymv5w37H+hLjph6fqs+7gWAP6Hnt+wXCGMFm4bDqLwm89e+ARtTd96TNHX9dfXRDjOdYFuAkvOb8cKwlGK7rDkfPX8nYBp29pn1UEZPrfl9+sGlnlnqzy/vla0n+144XpFf38+rfPMALC5ev/owukWYRMw/jd6U1j7gmQoFLSBgtspzrH7pWWOBL1w7a5tfKfir6EbWOF7kP1H1m94zxDr78/RfUcAsLlGAstpv/m7IiqPsBaawmqLrmwbCKxgdyatN7AM8Wy9IeCvYTywXMC7/j3rt7sw+b6GAkt+YTDt3fkAYFMtFVgyDNoCHDEYGpEC3OnfWn9gtcJjypa/hvHAkv0j6w8D23uGnudd3GP69oQ9AGyiSGDpQil+VzHaHZb+bHcE8ZDpFGDbdyCw6msyHLzfsNYWWPr/3hrCuRf8NXQDK3wW8d4i6w/nsZ/HAstez3VYDbwLANhA0R2W3WHIY6rgm7wrrLF2V2Sb60UhQmGoAIt76rHCYt5/f6tZt71vlcCKr0GO7fhr8NdYj1eakF6MJQM0tv465Gq5fl+jOyzNDzYAeB2WOxJEUrphDgCbj8CaGnv0GewcAeAVILAmoz22HDoWBYBNRWABACaBwAIATAKBBQCYBAILAJC8u4dHHVgHBBYAIG1X1zcEFgAgffvn31S2faSynVMCCwCQltv7v+ry52+19/lr/fvVTGW7ZyrL3rxXAACk44PK3n50R4Hbx253ZQPLbLUAAEiKCaqTNqx2z9Q/ce2mBYO92KwAAAAASUVORK5CYII=" InformativeScreenshot="51debb4a6fe34b9e9e5126ee41161388.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/SpcUYDZSSUSns8DYERzn6w" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Field - Search this library'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Text="%[k(enter)]" Version="V3">
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details%2FNEW%20Remits%2FGIRO&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="qOau7z4TBU6xphfGK85Z4w" DesignTimeRectangle="501, 87, 424, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Field - Search this library'" FullSelectorArgument="&lt;webctrl tag='INPUT' placeholder='Search this library' type='search' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' placeholder='Search this library' type='search' class='XZD9Ly2tGN4K6ZmrPDpaa _1kB6UxIkPBEergyFfpKqWJ o365sx-searchBoxInactive' aaname='' /&gt;" Guid="d53a506f-2065-4d5f-a7b8-beec8b53cead" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAawAAAAkCAYAAADVXA6tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO6SURBVHhe7dpNTtwwGMbxnKYVFE7Cgl2rSuVjAFVCvUBuUKmqqlyCC+QESGzasKzoAWbJh8qajeuPTPLacZIZIabO8F/81E7s2E4W7zP2kGU7pwoAgOTsnvmy7SMFAEA6jp2dEz+4np6eFAAAqbi9f1SXv27U3vl3lb2btaEV6wwAQAr2v/xwoUVgAQBSdnX9xx0Tml1WrAMAACm4e3hU2dah3mWdEFgAgLRlWwcEFgAgfdnWJwILAJA+AgsAMAkEFgBgEggsAMAkEFgAgEkgsAAAk9AbWPMyV7PZrJGXc6/9pdn5iyratpxKFbNclfNYmzYvVT7UHjVXZT5TReU+V4V+N80aR+YDADxLNLD8QmzoQl0+JzxWt3Jg2QAqVNVce4kA8QPLR2ABwEuKBNZQUV4fAgsAIC25wwpUhTguDIq01yaPEutiX5pg0W15qeb1PXa+5h4XOovAkm29x5LBnG7tdYBU9XzWQKDZwGvHiIeSH1h+qC7GM/8uxpHvJv78doymv5w37H+hLjph6fqs+7gWAP6Hnt+wXCGMFm4bDqLwm89e+ARtTd96TNHX9dfXRDjOdYFuAkvOb8cKwlGK7rDkfPX8nYBp29pn1UEZPrfl9+sGlnlnqzy/vla0n+144XpFf38+rfPMALC5ev/owukWYRMw/jd6U1j7gmQoFLSBgtspzrH7pWWOBL1w7a5tfKfir6EbWOF7kP1H1m94zxDr78/RfUcAsLlGAstpv/m7IiqPsBaawmqLrmwbCKxgdyatN7AM8Wy9IeCvYTywXMC7/j3rt7sw+b6GAkt+YTDt3fkAYFMtFVgyDNoCHDEYGpEC3OnfWn9gtcJjypa/hvHAkv0j6w8D23uGnudd3GP69oQ9AGyiSGDpQil+VzHaHZb+bHcE8ZDpFGDbdyCw6msyHLzfsNYWWPr/3hrCuRf8NXQDK3wW8d4i6w/nsZ/HAstez3VYDbwLANhA0R2W3WHIY6rgm7wrrLF2V2Sb60UhQmGoAIt76rHCYt5/f6tZt71vlcCKr0GO7fhr8NdYj1eakF6MJQM0tv465Gq5fl+jOyzNDzYAeB2WOxJEUrphDgCbj8CaGnv0GewcAeAVILAmoz22HDoWBYBNRWABACaBwAIATAKBBQCYBAILAJC8u4dHHVgHBBYAIG1X1zcEFgAgffvn31S2faSynVMCCwCQltv7v+ry52+19/lr/fvVTGW7ZyrL3rxXAACk44PK3n50R4Hbx253ZQPLbLUAAEiKCaqTNqx2z9Q/ce2mBYO92KwAAAAASUVORK5CYII=" InformativeScreenshot="51debb4a6fe34b9e9e5126ee41161388.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/SpcUYDZSSUSns8DYERzn6w" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NTypeInto.Target>
+                      </uix:NTypeInto>
+                      <Assign DisplayName="Assign New Remits Folder Name" sap:VirtualizedContainerService.HintSize="338,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strFileName]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_strRemitsFolder]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <uix:NClick ClickType="Single" DisplayName="Click New Remits" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="c0wiKTjC9UKGK8NeBaF17Q" DesignTimeRectangle="188, 462, 247, 20" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - File Name'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='BUTTON' aaname='*{0}*' /&gt;&quot;, strFileName)]" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' aaname='PROCESSED Remits' type='button' class='ms-Link root_c37e4642 nameField_dd1019e7 clickable_dd1019e7 overflow_7939f24e pre_7939f24e' check:text='PROCESSED Remits' /&gt;" Guid="e84d7aef-0707-418e-a64b-5e1b66e3f253" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHsAAAAYCAYAAADap4KLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKYSURBVGhD7ZftccMgDIY7Utux3E3qadxN7DUyBAUJGX2ASOOmPwrPne/qCIT0vkDSlzAZhmn2QEyzB2KaPRDT7IGYZg/ENHsghNnH+hre3/jzGY4cC+EWvhYvTuxhFWNew8d2yzGNzXmO3T/F5/CsO8YSOs5jpgZWp5e3Fntbwler/IzVrT/nUWAt0ev9GLO5MbdtiYWTUGgMXwcWXrYYydy28BGbleZmQ/m4RGvsmscl4fWcDNSlYseW3yGvEnvfyruTtxrLG6C9YXu6PRe9todrNoi/kHDWbBRWbob6wnounjx3gzqmuA16ZiZ+anZC9Gmx9aT+nne6Ob9oNi+6Y3ZHENjtNLlnSMIZUzvZJ7WTzXnE7PiJ6Z3RNxvnn9c8S0S6pBwYRw3xdsDPeO6io8p5rie/wvjc/jV+Nq8bxvdzfM9AFi8FO6TxrOj08CkkjhQ5Q3Nr9Xh5nR6soQUdg9rOpEqn/E5hMpXeTV9QbzlEWrva2nytYy8x/weaaLy1kzKOUACL3222lw+gmuonmYTkYrh5nZgWlaN1E63Vbry0Th5ktEgxMV7eEveY3dK2c41zKjuSC/OH17jBCMTBa+3s38vbjMneNUI3XQu8y80AT17HmJ10FDX8zOwEGM7WIB42m97LeE8QHdPfaRU8Uwx+PmNGK28r1qlF6wZiU7PGPMkzzCZgbMxFXDA7AqeZiQzv2nCcJxqKQCG1sXf863WslWuRTlP8W+a8drKxTn9jWt34mti/awgv+JLZTL9E7oe4ZnYExeDiY6P8ymrmzJuDjxWmqBgZQRulPGx9L2fCyVuN6YYrVHWDXGSS1YTSXjW79ItjUi1lHXkohNmT/800eyCm2QMxzR6IafZATLMHYpo9DCF8A7z9EGyzy04cAAAAAElFTkSuQmCC" InformativeScreenshot="d8ba2ffbf0878b6f732a439bc5cdb354.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/70gAAE2qakK8q1RUkUFJ_A" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <If sap2010:Annotation.AnnotationText="If Giro Scenario?" Condition="[booGiro]" sap:VirtualizedContainerService.HintSize="338,56" sap2010:WorkflowViewState.IdRef="If_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Click on Giro" sap:VirtualizedContainerService.HintSize="400,369" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign Giro" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strFileName]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[in_strGiroFolder]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <uix:NClick ClickType="Single" DisplayName="Click Giro Folder" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="c0wiKTjC9UKGK8NeBaF17Q" DesignTimeRectangle="188, 462, 247, 20" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - File Name'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='BUTTON' aaname='*{0}*' /&gt;&quot;, strFileName)]" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' aaname='PROCESSED Remits' type='button' class='ms-Link root_c37e4642 nameField_dd1019e7 clickable_dd1019e7 overflow_7939f24e pre_7939f24e' check:text='PROCESSED Remits' /&gt;" Guid="e84d7aef-0707-418e-a64b-5e1b66e3f253" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHsAAAAYCAYAAADap4KLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKYSURBVGhD7ZftccMgDIY7Utux3E3qadxN7DUyBAUJGX2ASOOmPwrPne/qCIT0vkDSlzAZhmn2QEyzB2KaPRDT7IGYZg/ENHsghNnH+hre3/jzGY4cC+EWvhYvTuxhFWNew8d2yzGNzXmO3T/F5/CsO8YSOs5jpgZWp5e3Fntbwler/IzVrT/nUWAt0ev9GLO5MbdtiYWTUGgMXwcWXrYYydy28BGbleZmQ/m4RGvsmscl4fWcDNSlYseW3yGvEnvfyruTtxrLG6C9YXu6PRe9todrNoi/kHDWbBRWbob6wnounjx3gzqmuA16ZiZ+anZC9Gmx9aT+nne6Ob9oNi+6Y3ZHENjtNLlnSMIZUzvZJ7WTzXnE7PiJ6Z3RNxvnn9c8S0S6pBwYRw3xdsDPeO6io8p5rie/wvjc/jV+Nq8bxvdzfM9AFi8FO6TxrOj08CkkjhQ5Q3Nr9Xh5nR6soQUdg9rOpEqn/E5hMpXeTV9QbzlEWrva2nytYy8x/weaaLy1kzKOUACL3222lw+gmuonmYTkYrh5nZgWlaN1E63Vbry0Th5ktEgxMV7eEveY3dK2c41zKjuSC/OH17jBCMTBa+3s38vbjMneNUI3XQu8y80AT17HmJ10FDX8zOwEGM7WIB42m97LeE8QHdPfaRU8Uwx+PmNGK28r1qlF6wZiU7PGPMkzzCZgbMxFXDA7AqeZiQzv2nCcJxqKQCG1sXf863WslWuRTlP8W+a8drKxTn9jWt34mti/awgv+JLZTL9E7oe4ZnYExeDiY6P8ymrmzJuDjxWmqBgZQRulPGx9L2fCyVuN6YYrVHWDXGSS1YTSXjW79ItjUi1lHXkohNmT/800eyCm2QMxzR6IafZATLMHYpo9DCF8A7z9EGyzy04cAAAAAElFTkSuQmCC" InformativeScreenshot="d8ba2ffbf0878b6f732a439bc5cdb354.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/70gAAE2qakK8q1RUkUFJ_A" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                      <Assign sap:VirtualizedContainerService.HintSize="338,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strFileName]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_strFileName]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Field - Search this library'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details%2FNEW%20Remits%2FGIRO&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="qOau7z4TBU6xphfGK85Z4w" DesignTimeRectangle="501, 87, 424, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Field - Search this library'" FullSelectorArgument="&lt;webctrl tag='INPUT' placeholder='Search this library' type='search' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' placeholder='Search this library' type='search' class='XZD9Ly2tGN4K6ZmrPDpaa _1kB6UxIkPBEergyFfpKqWJ o365sx-searchBoxInactive' aaname='' /&gt;" Guid="d53a506f-2065-4d5f-a7b8-beec8b53cead" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAawAAAAkCAYAAADVXA6tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO6SURBVHhe7dpNTtwwGMbxnKYVFE7Cgl2rSuVjAFVCvUBuUKmqqlyCC+QESGzasKzoAWbJh8qajeuPTPLacZIZIabO8F/81E7s2E4W7zP2kGU7pwoAgOTsnvmy7SMFAEA6jp2dEz+4np6eFAAAqbi9f1SXv27U3vl3lb2btaEV6wwAQAr2v/xwoUVgAQBSdnX9xx0Tml1WrAMAACm4e3hU2dah3mWdEFgAgLRlWwcEFgAgfdnWJwILAJA+AgsAMAkEFgBgEggsAMAkEFgAgEkgsAAAk9AbWPMyV7PZrJGXc6/9pdn5iyratpxKFbNclfNYmzYvVT7UHjVXZT5TReU+V4V+N80aR+YDADxLNLD8QmzoQl0+JzxWt3Jg2QAqVNVce4kA8QPLR2ABwEuKBNZQUV4fAgsAIC25wwpUhTguDIq01yaPEutiX5pg0W15qeb1PXa+5h4XOovAkm29x5LBnG7tdYBU9XzWQKDZwGvHiIeSH1h+qC7GM/8uxpHvJv78doymv5w37H+hLjph6fqs+7gWAP6Hnt+wXCGMFm4bDqLwm89e+ARtTd96TNHX9dfXRDjOdYFuAkvOb8cKwlGK7rDkfPX8nYBp29pn1UEZPrfl9+sGlnlnqzy/vla0n+144XpFf38+rfPMALC5ev/owukWYRMw/jd6U1j7gmQoFLSBgtspzrH7pWWOBL1w7a5tfKfir6EbWOF7kP1H1m94zxDr78/RfUcAsLlGAstpv/m7IiqPsBaawmqLrmwbCKxgdyatN7AM8Wy9IeCvYTywXMC7/j3rt7sw+b6GAkt+YTDt3fkAYFMtFVgyDNoCHDEYGpEC3OnfWn9gtcJjypa/hvHAkv0j6w8D23uGnudd3GP69oQ9AGyiSGDpQil+VzHaHZb+bHcE8ZDpFGDbdyCw6msyHLzfsNYWWPr/3hrCuRf8NXQDK3wW8d4i6w/nsZ/HAstez3VYDbwLANhA0R2W3WHIY6rgm7wrrLF2V2Sb60UhQmGoAIt76rHCYt5/f6tZt71vlcCKr0GO7fhr8NdYj1eakF6MJQM0tv465Gq5fl+jOyzNDzYAeB2WOxJEUrphDgCbj8CaGnv0GewcAeAVILAmoz22HDoWBYBNRWABACaBwAIATAKBBQCYBAILAJC8u4dHHVgHBBYAIG1X1zcEFgAgffvn31S2faSynVMCCwCQltv7v+ry52+19/lr/fvVTGW7ZyrL3rxXAACk44PK3n50R4Hbx253ZQPLbLUAAEiKCaqTNqx2z9Q/ce2mBYO92KwAAAAASUVORK5CYII=" InformativeScreenshot="51debb4a6fe34b9e9e5126ee41161388.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/SpcUYDZSSUSns8DYERzn6w" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Field - Search this library'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="338,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Text="[strFileName + &quot;[k(enter)]&quot;]" Version="V3">
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details%2FNEW%20Remits%2FGIRO&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="qOau7z4TBU6xphfGK85Z4w" DesignTimeRectangle="501, 87, 424, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Field - Search this library'" FullSelectorArgument="&lt;webctrl tag='INPUT' placeholder='Search this library' type='search' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' placeholder='Search this library' type='search' class='XZD9Ly2tGN4K6ZmrPDpaa _1kB6UxIkPBEergyFfpKqWJ o365sx-searchBoxInactive' aaname='' /&gt;" Guid="d53a506f-2065-4d5f-a7b8-beec8b53cead" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAawAAAAkCAYAAADVXA6tAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO6SURBVHhe7dpNTtwwGMbxnKYVFE7Cgl2rSuVjAFVCvUBuUKmqqlyCC+QESGzasKzoAWbJh8qajeuPTPLacZIZIabO8F/81E7s2E4W7zP2kGU7pwoAgOTsnvmy7SMFAEA6jp2dEz+4np6eFAAAqbi9f1SXv27U3vl3lb2btaEV6wwAQAr2v/xwoUVgAQBSdnX9xx0Tml1WrAMAACm4e3hU2dah3mWdEFgAgLRlWwcEFgAgfdnWJwILAJA+AgsAMAkEFgBgEggsAMAkEFgAgEkgsAAAk9AbWPMyV7PZrJGXc6/9pdn5iyratpxKFbNclfNYmzYvVT7UHjVXZT5TReU+V4V+N80aR+YDADxLNLD8QmzoQl0+JzxWt3Jg2QAqVNVce4kA8QPLR2ABwEuKBNZQUV4fAgsAIC25wwpUhTguDIq01yaPEutiX5pg0W15qeb1PXa+5h4XOovAkm29x5LBnG7tdYBU9XzWQKDZwGvHiIeSH1h+qC7GM/8uxpHvJv78doymv5w37H+hLjph6fqs+7gWAP6Hnt+wXCGMFm4bDqLwm89e+ARtTd96TNHX9dfXRDjOdYFuAkvOb8cKwlGK7rDkfPX8nYBp29pn1UEZPrfl9+sGlnlnqzy/vla0n+144XpFf38+rfPMALC5ev/owukWYRMw/jd6U1j7gmQoFLSBgtspzrH7pWWOBL1w7a5tfKfir6EbWOF7kP1H1m94zxDr78/RfUcAsLlGAstpv/m7IiqPsBaawmqLrmwbCKxgdyatN7AM8Wy9IeCvYTywXMC7/j3rt7sw+b6GAkt+YTDt3fkAYFMtFVgyDNoCHDEYGpEC3OnfWn9gtcJjypa/hvHAkv0j6w8D23uGnudd3GP69oQ9AGyiSGDpQil+VzHaHZb+bHcE8ZDpFGDbdyCw6msyHLzfsNYWWPr/3hrCuRf8NXQDK3wW8d4i6w/nsZ/HAstez3VYDbwLANhA0R2W3WHIY6rgm7wrrLF2V2Sb60UhQmGoAIt76rHCYt5/f6tZt71vlcCKr0GO7fhr8NdYj1eakF6MJQM0tv465Gq5fl+jOyzNDzYAeB2WOxJEUrphDgCbj8CaGnv0GewcAeAVILAmoz22HDoWBYBNRWABACaBwAIATAKBBQCYBAILAJC8u4dHHVgHBBYAIG1X1zcEFgAgffvn31S2faSynVMCCwCQltv7v+ry52+19/lr/fvVTGW7ZyrL3rxXAACk44PK3n50R4Hbx253ZQPLbLUAAEiKCaqTNqx2z9Q/ce2mBYO92KwAAAAASUVORK5CYII=" InformativeScreenshot="51debb4a6fe34b9e9e5126ee41161388.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/SpcUYDZSSUSns8DYERzn6w" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NTypeInto.Target>
+                      </uix:NTypeInto>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Button - File Name'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Right" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="c0wiKTjC9UKGK8NeBaF17Q" DesignTimeRectangle="188, 462, 247, 20" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - File Name'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='BUTTON' aaname='*{0}*' /&gt;&quot;, strFileName)]" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' aaname='PROCESSED Remits' type='button' class='ms-Link root_c37e4642 nameField_dd1019e7 clickable_dd1019e7 overflow_7939f24e pre_7939f24e' check:text='PROCESSED Remits' /&gt;" Guid="e84d7aef-0707-418e-a64b-5e1b66e3f253" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHsAAAAYCAYAAADap4KLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKYSURBVGhD7ZftccMgDIY7Utux3E3qadxN7DUyBAUJGX2ASOOmPwrPne/qCIT0vkDSlzAZhmn2QEyzB2KaPRDT7IGYZg/ENHsghNnH+hre3/jzGY4cC+EWvhYvTuxhFWNew8d2yzGNzXmO3T/F5/CsO8YSOs5jpgZWp5e3Fntbwler/IzVrT/nUWAt0ev9GLO5MbdtiYWTUGgMXwcWXrYYydy28BGbleZmQ/m4RGvsmscl4fWcDNSlYseW3yGvEnvfyruTtxrLG6C9YXu6PRe9todrNoi/kHDWbBRWbob6wnounjx3gzqmuA16ZiZ+anZC9Gmx9aT+nne6Ob9oNi+6Y3ZHENjtNLlnSMIZUzvZJ7WTzXnE7PiJ6Z3RNxvnn9c8S0S6pBwYRw3xdsDPeO6io8p5rie/wvjc/jV+Nq8bxvdzfM9AFi8FO6TxrOj08CkkjhQ5Q3Nr9Xh5nR6soQUdg9rOpEqn/E5hMpXeTV9QbzlEWrva2nytYy8x/weaaLy1kzKOUACL3222lw+gmuonmYTkYrh5nZgWlaN1E63Vbry0Th5ktEgxMV7eEveY3dK2c41zKjuSC/OH17jBCMTBa+3s38vbjMneNUI3XQu8y80AT17HmJ10FDX8zOwEGM7WIB42m97LeE8QHdPfaRU8Uwx+PmNGK28r1qlF6wZiU7PGPMkzzCZgbMxFXDA7AqeZiQzv2nCcJxqKQCG1sXf863WslWuRTlP8W+a8drKxTn9jWt34mti/awgv+JLZTL9E7oe4ZnYExeDiY6P8ymrmzJuDjxWmqBgZQRulPGx9L2fCyVuN6YYrVHWDXGSS1YTSXjW79ItjUi1lHXkohNmT/800eyCm2QMxzR6IafZATLMHYpo9DCF8A7z9EGyzy04cAAAAAElFTkSuQmCC" InformativeScreenshot="d8ba2ffbf0878b6f732a439bc5cdb354.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/70gAAE2qakK8q1RUkUFJ_A" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Button - Move to'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details%2FNEW%20Remits&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="TqPbGvkHUEWb1zweAMXdkg" DesignTimeRectangle="277, 510, 180, 36" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - Move to'" FullSelectorArgument="&lt;webctrl aria-label='Move to' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Move to' aria-role='menuitem' tag='BUTTON' type='' class='ms-ContextualMenu-link root-366' aaname='Move to' check:innerText='Move to' /&gt;" Guid="b9a3b05d-75d0-410b-bed3-180704c8a09e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAoCAYAAABNVTCEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH4SURBVHhe7dg9TsNAFEVhlgTsAtYALICfBUAfauihJC3sIW22ACUUkaCJlHLQNXnwGAyxbKSIy/mkyMlk7HFxMlhszOfzMpvNCuBETattAoclAoc1Aoc1Aoc1Aoc1Aoc1Aoc1Aoc1Aoc1Aoc1Aoc1Aoc1Aoc1Aoe1XoFfXl6Ug/298vLyvBz5bDqdlu2tzeYIrFPvwI+ODsvd7e1y5MNisShnp6drC1z31nZf+J8GBa6QFXSmqE+Oj5sXgWPdegc+Ht80gdcR67vJZPLlO73Xrh4vzZPY8fPceiyfu7u7Ux4e7pvxLP/lqOd9tzb89Q5cu6TCUVSxiyso7dxPj49fAs3BRYyx0+qYo8vX1fv8vF+vWYt7C6vWhrdBgSs6BR3xxHhEpLjyeJZDjR9GRJzn1+dq/vlo9L5mrZ6/am14GxS46KjPOfYceB17aItac/RZ83WMc/PjRbzq64V8b13Xhq/BgUeQ11dXzbjUYeX5QZFpJ9Zc0dyIPK4jMdZVvVaXteFrcOCiz23PuRGmjqueg+OHks8Tvf/pf+61+t66rA1fvxJ4vSPWgYve50eMtsB0XZ0X1wmam89tmxN0Lwo6R91lbXjqFTjwVxA4rBE4rBE4rBE4rBE4rBE4rBE4rBE4rBE4rBE4rBE4rBE4rBE4rBE4rL0FPi+v0wlmFqjZNwgAAAAASUVORK5CYII=" InformativeScreenshot="3b8b3ab9ec5c9d0b2bbe0e5f6e046d24.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/WbxZkVXIj0CL-it0qG-Nkg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Button - CAPYBARA Remit Details_Iframe'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/_layouts/15/FilePicker.aspx?app=SPList%20Web&amp;scenario=MoveCopy&amp;filePicker=%7B%22sdk%22%3A%228%2E0%22%2C%22entry%22%3A%7B%22sharePoint%22%3A%7B%22byPath%22%3A%7B%22web%22%3A%22https%3A%2F%2Forica%2Esharepoint%2Ecom%2Fteams%2Fcollab%5F000792%22%2C%22list%22%3A%22https%3A%2F%2Forica%2Esharepoint%2Ecom%2Fteams%2Fcollab%5F000792%2FShared%20Documents%22%2C%22folder%22%3A%22%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details%2FNEW%20Remits%22%7D%7D%7D%2C%22telemetry%22%3A%7B%22sessionId%22%3A%22788d93a0%2D902c%2D2000%2D1d3e%2D8bb0eba1819b%22%7D%2C%22messaging%22%3A%7B%22origin%22%3A%22https%3A%2F%2Forica%2Esharepoint%2Ecom%22%2C%22channelId%22%3A%22filePicker%2D6d817a38%2Dacdc%2D4bd3%2D878d%2Ddd5aad532e95%22%2C%22identifyParent%22%3Atrue%2C%22waitForConfiguration%22%3Atrue%7D%2C%22theme%22%3A%7B%22isInverted%22%3Afalse%2C%22palette%22%3A%7B%22white%22%3A%22%23ffffff%22%7D%2C%22semanticColors%22%3A%7B%22bodyBackground%22%3A%22%23ffffff%22%7D%7D%7D&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details%2FNEW%20Remits&amp;p=2" ContentHash="FQp1s7tKvkyED-UE60-VuQ" DesignTimeRectangle="549, 112, 212, 37" DesignTimeScaleFactor="1" FriendlyName="'Button - CAPYBARA Remit Details_Iframe'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;iframe' tag='IFRAME' /&gt;&lt;webctrl aaname='*CAPYBARA Remit Details*' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl aaname='*CAPYBARA Remit Details*' tag='BUTTON' type='button' class='ms-Link ms-Breadcrumb-itemLink itemLink-92' check:text='CAPYBARA Remit DetailsCAPYBARA Remit Details' /&gt;" Guid="ec14ba8e-180c-45b5-8954-fda2730f6185" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAApCAYAAABX7udRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVhSURBVHhe7Zm7jl1FEEX5UIQIESLkGSEDGYgMCEBG/AE2CZABmYmAzETmC0w22UVrNBsVpao6fezpMcFeUss+3dXVu14Dtl+6GGO24QEzZiMeMGM24gEzZiMeMGM24gEzZiMeMGM24gEzZiMeMGM24gEzZiMeMGM24gEzZiMeMGM24gEz5oZvvr5/+fSTjy9XV1c3O8/PMw0YAhDy6isv/2d14v74/bfrcwKo+Pvp08t777w1+pOPH3/4/vo7wz4+8NX5694XnGPHWxWdX73b8deTJ5c3Xn/tVPG6HOMHf3fN8zSfaletLte7US1jP/0vBgxBJCY3OoIRWIlj/8N777eNWAWrBot3ugTovopV+VOT46OCOx99cO/y7ttvjjbZL2A/NT72+GWtDofiz1rw9SIaM+c+53wCmyo/qkms8RnOaMhUtcwx3ganBqxL1ASB0Ljc7ZJRBQsqgO7kb8G9qvjZH9/sc57BJz5+ffSoten8dvugQcEvv1Y2Fd2Adft3jWKu6pnBpusbxcNS/VY5o2GFFzpgUxNNYC/RBFA1RudbyY/7OQlVkjt/fLPPeSS+U/kTZ3QK/OhNzqP2Cfms8tXl8S6Z8pTBZvrBfHTecUbDCrm3boPlAYuNskpuvC6RZxo3/1esatrOX5dAfMb/fevsOr9ToeMwZO0Til13RZUTkG/92SbrV4x/Pn58fSY7+cef9qoaxZzwe9lqZZ2Rru6iy+sU05GGGA8rv1+9GWME5Tr6yRqPWB6w/PgKKqoCO2rQLsG5IdHC6hq78jcVGbsYW2db+VURqtxkfbKNjdDR2fKNT3wL/FP8/E7UpFzGuHSPPx/Hd6o32Iv+cmwT2HS5hyrWlZg6DezjS3aQY9LdWMsYY6UJ/b/8/NPN1xpbByw3LlR+qmC1FwMUBMrgfvH5Z6Um3dVPHa3oXyiR1dvZvvI7NQ6Fx557Ap95r0K64lus3Eyyy3lCE9pkr+8Yk+5mPfku5LopF1lPBTZnBmw1pjMauHv0wz7GeMb3xLYBqwKAKtmyzc2U70bQUzUcVG+raOxzLio9UMWb/eq7yoveO2qSjny/058bR2StnV0VZ6Ux28n/URzQ5VjkWDutXf47DeznnpJt9gUxRmmadK+wPGAIQRDCVqiCi0vJhCrYIyY9nb8uqZU+rVi86r6aMb+l/conKzd1Jjcd6P24d5Rn6eqaNjaVkPYYe7aTlmjTgc3UqNnXakydBunnDJu4J1vdzb2Qc8FefvcMywNWJX2iEis4i8FXwR6BbfQR6fypabU/vasztIrOPscDkz7OpoYDaY3vQ77Lr9XgZDq7qk7Y5FpnO+VipR+wmeLlPOaq05qpNHR5yzHpbqxllQvBPYYs+z1iecAA513TRCrxkZVgj8C209L5y/u8PxU+v3HkV8nviiw6P5HOh/bVCCu+oGta/OemyvWBbKd3o03HlGe9FfWvxlRp6PKGLwZEttUbVS4i2E7nFacGTOKrZPHNXzpgg5CpcXMSVhMawZY73M1U/vSm7uh7SpiKPxVFxJixj8WsOCpmzlEk++ft/B73Hz749l//6LrNAZv0ZfBT9YN0d/k8iqnTwHfsDcUT/VW1jDFy/t3DBzcn5+KNnBowgUjE5oVYCZHQDmyV9KlxO7CNSYzIX9YXk6OkT2/mWCadOsP2/ldfttqEchgbKDIVVGfxjaom0Tfx3uaAQXxzarxKGyv7yxzFBJUG5Uf7/J5//4sxVbWMMepcPqL/MzzTgBlj1vCAGbMRD5gxG/GAGbMRD5gxG/GAGbMRD5gxG/GAGbMRD5gxG/GAGbMRD5gxG/GAGbMRD5gxG/GAGbONy+UfgahEiUA+WIEAAAAASUVORK5CYII=" InformativeScreenshot="8cf0e59d411e618386c82518b18d7bec.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/PS5eC3dFm02qeH-4LiS0Ww" ScopeSelectorArgument="&lt;html app='msedge.exe' htmlwindowname='{}' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <Assign DisplayName="Assign File Name" sap:VirtualizedContainerService.HintSize="338,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strFileName]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_ProcessedRemitsFolder]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Button - File Name'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" ContentHash="c0wiKTjC9UKGK8NeBaF17Q" DesignTimeRectangle="188, 462, 247, 20" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - File Name'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='BUTTON' aaname='*{0}*' /&gt;&quot;, strFileName)]" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' aaname='PROCESSED Remits' type='button' class='ms-Link root_c37e4642 nameField_dd1019e7 clickable_dd1019e7 overflow_7939f24e pre_7939f24e' check:text='PROCESSED Remits' /&gt;" Guid="e84d7aef-0707-418e-a64b-5e1b66e3f253" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHsAAAAYCAYAAADap4KLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKYSURBVGhD7ZftccMgDIY7Utux3E3qadxN7DUyBAUJGX2ASOOmPwrPne/qCIT0vkDSlzAZhmn2QEyzB2KaPRDT7IGYZg/ENHsghNnH+hre3/jzGY4cC+EWvhYvTuxhFWNew8d2yzGNzXmO3T/F5/CsO8YSOs5jpgZWp5e3Fntbwler/IzVrT/nUWAt0ev9GLO5MbdtiYWTUGgMXwcWXrYYydy28BGbleZmQ/m4RGvsmscl4fWcDNSlYseW3yGvEnvfyruTtxrLG6C9YXu6PRe9todrNoi/kHDWbBRWbob6wnounjx3gzqmuA16ZiZ+anZC9Gmx9aT+nne6Ob9oNi+6Y3ZHENjtNLlnSMIZUzvZJ7WTzXnE7PiJ6Z3RNxvnn9c8S0S6pBwYRw3xdsDPeO6io8p5rie/wvjc/jV+Nq8bxvdzfM9AFi8FO6TxrOj08CkkjhQ5Q3Nr9Xh5nR6soQUdg9rOpEqn/E5hMpXeTV9QbzlEWrva2nytYy8x/weaaLy1kzKOUACL3222lw+gmuonmYTkYrh5nZgWlaN1E63Vbry0Th5ktEgxMV7eEveY3dK2c41zKjuSC/OH17jBCMTBa+3s38vbjMneNUI3XQu8y80AT17HmJ10FDX8zOwEGM7WIB42m97LeE8QHdPfaRU8Uwx+PmNGK28r1qlF6wZiU7PGPMkzzCZgbMxFXDA7AqeZiQzv2nCcJxqKQCG1sXf863WslWuRTlP8W+a8drKxTn9jWt34mti/awgv+JLZTL9E7oe4ZnYExeDiY6P8ymrmzJuDjxWmqBgZQRulPGx9L2fCyVuN6YYrVHWDXGSS1YTSXjW79ItjUi1lHXkohNmT/800eyCm2QMxzR6IafZATLMHYpo9DCF8A7z9EGyzy04cAAAAAElFTkSuQmCC" InformativeScreenshot="d8ba2ffbf0878b6f732a439bc5cdb354.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/70gAAE2qakK8q1RUkUFJ_A" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Button - Move here'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0977f8ca-d159-436b-8f57-502eb1faf1ec" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable ContentHash="e7atsRnLeUejQzTpJbNBIA" DesignTimeRectangle="1005, 664, 102, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - Move here'" FullSelectorArgument="&lt;ctrl name='Move here' role='push button' aastate='focusable, opaque' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Move here' role='push button' aastate='focusable, opaque' automationid='' check:text='Move here' /&gt;" Guid="14274db2-73ec-4879-b71c-cc0e681cded3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGoAAAAkCAYAAABhc6+LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOzSURBVGhD7Zs7SyNRFMf9FvsEP8J+BMstt0xpmTJgk24fpLBZSBVkKyGFFhZpBBshWMRA3BgIklkJMSOETEKYjAaZQUM4e+7jzCOZ1R1w8Ar3D3/M3HMfM/c3956rkjXQehXSoF6JfFDXUw8+/vgNa1un2gqYsbh27iWdEKj3389iG2i/lOvwAWGRfFDxlbVf2iQNSnGTNCjFTdKgFDdJg1LcJA1KcZM0KMVN0qAUN0mDUtykZweV685lj/dwtLcaX2+4Mj6HamU1nq7HYLChR+OYmJompQgKwOleLcUvYN+WQQ3qv0xKCdQcHLZwHmaQD8f3pmBhsXUr6mhQT5uUGqiqccf7bZ0sxRDePtXxQXWgaLjgPPAmqAU4owlkCyw2hBYrup1CRvbjl9kT2NhqQvY81PZhDq1aR9ZbNoGyoWgGf5m2cOWvU51fQ6ja7P6EHHsKOX4fwbO18NkcFuTAk4yf3KT0QFVMqLObH1hyEsS1ZXRDdVh5U14vwDInsH1gwi5OooclHk7EBrbNmwu8wpxXluOcyJeg1oTPmPNYXce0IFs2oWLLujH50QeFsgZjyB+OocVTpuy7cAVVvhN4UDm8hGxtxoF4gyF/BnGfKPcG8j9Fn8nGT25SiqBOYdNgb60H+yU8RNTY5IoHiIKSk8dXB/XThJ0BK8QJw7ZrhzM+Gf32BY8XeewOdgo9MbG42japbVlsr063J/sKW46FE52TZRtt1jOA0cBredBhLwC1EWO5sIufCVSwSyQdP7lJqYKinNQ/78DuCD9IGJE6Bzf8rV0+eERhduHolrW3sb3Y9jzTxPJghSxr9SDDTFtfKEdJOAwUgVhVGBTdU6i/GMWPn9ykdEHRKc/FwwX+MBriTY3WeWxF4QTJ/OCvzkawMsNvdK58CZmQv5SCVRH4cVDi8wJajWhfmXIHPmHdVVBJx09uUsqgaMtjYltVXJ0mbi9sXw9y1E7X41sd5Qbed8mGPpY5CD281Yi+WFvMOWySMO9U7RlfAbxdxE+AKmGc5VXXhcpxDye8B9vtOzDaYnWsgko6fnKTUgdFJzSxVf2jTuESigiHn6S45tDvDiEjwQoHv4P1z0WuEsYTY6StODFSDor6CVB4vX4wAcNlL46Uew/1EzFeHKhk4yc36dlBaT+vSRqU4iZpUIqbpEEpbpIGpbhJGpTiJmlQipukQSlukgaluEk+qHf6SwKKuY5MYr4kYIxcePO1EdNA+yX89tsZ/BmJf8Ew+aC01JYG9SoE8Bd1bdNR87WHRwAAAABJRU5ErkJggg==" InformativeScreenshot="8464db983f97abba33ea96e46c0ec075.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/wuwLnxHNCUCTKklp1QL7QQ" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin*' title='*GBS Acounts Receivable*' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                    </Sequence>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" ContentHash="NkpLPGKvr0i64AirHLti7A" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEUSURBVDhPY0AHzDkFBkC8H4j/I2EQ3wCqBDcAKQLi91BN6Bgkjt8QoIL7SBqw4ftQpQjA3Nz+Hoj/48VNbciGOEC1QgBWDVgwo6UNYQMmnjz9Hxkgy/F4+f6Xmr0Qhu8DcQCGASAAMgTETtq0BS4Owry+AcgGwHAAigEXXrwEG7Lw4qX/ypOnEWPAfRQDhLv7/zcePPz//fcfYAziEzDgP4oBIGfDDAEBo1nzSDMAZCsMHHjwEC4OwqKRcdgMQPUCPiydnPFffvEqdAPAgUgwIbE2toINUFy2FqYREY3oAKjQAaQYHWtOnfPf/NgF1ESEDQAVCQDxfSAGaUDGIDEBqDL8AKjQAIjPQzWCMIiNJScyMAAAIGu1wTJAuKMAAAAASUVORK5CYII=" InformativeScreenshot="d631cd37bd872fbbd52c402c79051dfb.jpg" Reference="HLXiEbo_V0mRw1lnkGk7zg/KdCh3XXYkE--Gkm5l0_rug" Selector="&lt;html app='msedge.exe' title='*GBS Acounts Receivable*' /&gt;" Url="https://orica.sharepoint.com/teams/collab_000792/Shared%20Documents/Forms/AllItems.aspx?ga=1&amp;id=%2Fteams%2Fcollab%5F000792%2FShared%20Documents%2FCAPYBARA%20Remit%20Details&amp;viewid=4b1093b6%2D6a24%2D4ae1%2D81e4%2D11fb0a34b1ea" />
+                </uix:NApplicationCard.TargetApp>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NApplicationCard>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,402" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Failed To Move &quot;+in_strFileName+&quot; File To SharePoint&quot;]" />
+                    <Throw Exception="[new SystemException(&quot;Failed To Move &quot;+in_strFileName+&quot; File To SharePoint. Error Message - &quot;+ exception.Message)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <FlowStep.Next>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">200,340.5</av:Point>
+                  <av:Size x:Key="ShapeSize">200,52</av:Size>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ended SharePoint_MoveFileToProcessedFolder workflow&quot;]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+            </FlowStep>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+  </Flowchart>
+</Activity>

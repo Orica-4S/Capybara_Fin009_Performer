@@ -1,0 +1,16 @@
+﻿{
+  "Id": "fIgXD1j2lk-FDxYM5eg7Rw",
+  "Reference": "HLXiEbo_V0mRw1lnkGk7zg/fIgXD1j2lk-FDxYM5eg7Rw",
+  "ParentRef": "HLXiEbo_V0mRw1lnkGk7zg/DTUKKlp3-UiQPSSTFxna1A",
+  "Name": "Field - Select Single Values",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Created": "2023-02-02T04:06:45.9373091Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-02-02T04:10:09.4985034Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

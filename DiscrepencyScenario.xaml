@@ -1,0 +1,343 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Discrepency_Scenario" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strOpenAmount" Type="InArgument(x:String)" />
+    <x:Property Name="in_SmallDelay" Type="InArgument(x:TimeSpan)" />
+    <x:Property Name="in_VerySmallDelay" Type="InArgument(x:TimeSpan)" />
+    <x:Property Name="in_dblSmallDelay" Type="InArgument(x:Double)" />
+    <x:Property Name="in_strRemainingBalanceText" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Discrepency_Scenario.in_strOpenAmount>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Discrepency_Scenario.in_strOpenAmount>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,1287</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Discrepency_Scenario_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="92">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;DiscrepencyScenario&#xA;&#xA;[Description]:-&#xA;This workflow will enter discrepency amount if there is any.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_strOpenAmount - String containing Open Amount extracted from SAP.&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="Discrepency_Scenario" sap:VirtualizedContainerService.HintSize="502,1222" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="intCount" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started DiscrepencyScenario Workflow&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="440,565" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="538,25" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V2">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Toggle Full Screen on Assignment Tab" sap:VirtualizedContainerService.HintSize="504,3421" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="442,605" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+                  <ui:RetryScope.ActivityBody>
+                    <ActivityAction>
+                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="400,268" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ClickType="Single" DisplayName="Click 'Button - Toggle Full Screen_idx2'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable ContentHash="O7k7opXGx02cA9fKR5nPwQ" DesignTimeRectangle="499, 567, 27, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - Toggle Full Screen_idx2'" FullSelectorArgument="&lt;ctrl name='Edit Bank Statement Item' role='document' /&gt;&lt;ctrl name='Edit Bank Statement Item' role='document' /&gt;&lt;ctrl name='Edit Bank Statement Item' role='grouping' /&gt;&lt;ctrl idx='2' name='Toggle full screen' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Edit Bank Statement Item' role='document' /&gt;&lt;ctrl name='Edit Bank Statement Item' role='document' /&gt;&lt;ctrl name='Edit Bank Statement Item' role='grouping' /&gt;&lt;ctrl automationid='' name='Toggle full screen' role='push button' /&gt;" Guid="fe2ba85b-8d74-4dd9-a9e5-6f384557f1c3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB8AAAAeCAYAAADU8sWcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEKSURBVEhL1ZYxDoMgFIZ7qF6oa0/QGzROTp7CmLi56+JQR12bmE5egPE1f6wIAqm0gDp8g7zn/wHGwIkxRluxH3nXdVQUBaVp6hRkIlt0AS5HsaoqGoZBafoXZJZlSW3bSuNcjtn5EE8gGw5xjMuxPWLBB0vH8eWP+E7ny5KEsqfcZy1/5YkmeCSq1X7GGooMdWs5VqWX6PiI40b7nkf5LMZzQHlP2W0Wg2By9IjiaSzQytdxLPkvmCZ8HLkaMv5O3z6DB/kovua91KPDsXy9GDiU24mBMzkOCJN4qquoJxqwkptONN2q1mAld80+5ZteIH1fnZFtvDoDFDE7bI9LkLkUA0kemg3ljN5vcmVtSOV+PQAAAABJRU5ErkJggg==" InformativeScreenshot="a28ac424b09b58ab70adb93a347edfb0.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/YpnQNn8pIEiODtMQx_0Iag" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin*' title='Edit Bank Statement Item - Work - Microsoft​ Edge' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V1" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:RetryScope.ActivityBody>
+                  <ui:RetryScope.Condition>
+                    <ActivityFunc x:TypeArguments="x:Boolean">
+                      <uix:NCheckState DisplayName="Check App State 'Button - Toggle Full Screen'" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="334,177" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Timeout="[in_dblSmallDelay]" Version="V3">
+                        <uix:NCheckState.IfExists>
+                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,114" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </uix:NCheckState.IfExists>
+                        <uix:NCheckState.IfNotExists>
+                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,114" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </uix:NCheckState.IfNotExists>
+                        <uix:NCheckState.Target>
+                          <uix:TargetAnchorable ContentHash="gcqq-dc7U0uRe4tiZaL2Kg" DesignTimeRectangle="348, 163, 19, 19" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - Toggle Full Screen'" FullSelectorArgument="&lt;ctrl name='Toggle full screen' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Toggle full screen' role='push button' automationid='' /&gt;" Guid="0f87b047-7420-4437-82e1-6dc93ee2dcb9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD0SURBVEhL3ZW7DYMwFEUzVBZKxQZMgJSGjgWoKKBIRY2ExAgImMFQU974JhAcMMgx0KQ4EtbTPf7o2Vz6vsdZ/Im86zqkaYokSaxgtm1bvZzFqqoghLCCWTq0cs6uC/0CHTvkNSL/gWYYN3EAL5vqhnIpce+43hRcShV5FsKJayVjLC/g+YUyHhnk5QOOpn6APIDz2sW8tlsukPvfx2Vx5uvyLQzlJiwXYCTf2vqEpfwDu8KVvTxruTe75DLMrpATHCznJQqR83uUcxfKURGrS5TLXo7KIbS68iWGK7djVX7qk8uHnkXObgOz/OFo5UdzorzHE6psdeER9K9PAAAAAElFTkSuQmCC" InformativeScreenshot="ba248c5dd6b0a5477ebfab740bac107f.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/-j6fFWLB3E2_PxSOS-l3ig" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin*' title='Edit Bank Statement Item*' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V1" Visibility="Interactive" />
+                        </uix:NCheckState.Target>
+                      </uix:NCheckState>
+                    </ActivityFunc>
+                  </ui:RetryScope.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:RetryScope>
+                <Delay Duration="[in_VerySmallDelay]" sap:VirtualizedContainerService.HintSize="442,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                <uix:NClick ClickType="Single" DisplayName="Click 'Header - Reference'" sap:VirtualizedContainerService.HintSize="442,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="DFvssZmJCkynaV2wGc5dbA" DesignTimeRectangle="429, 246, 63, 16" DesignTimeScaleFactor="1" FriendlyName="'Header - Reference'" FullSelectorArgument="&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl aaname='Reference' tag='SPAN' innertext='Reference' /&gt;" FuzzySelectorArgument="&lt;webctrl id='application-BankStatementPP-display' /&gt;&lt;webctrl aaname='Reference' tag='SPAN' innertext='Reference' type='' class='  lsCaption--embedded' check:text='Reference' /&gt;" Guid="6eeacd53-41a0-4124-bec9-61532c8e095a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAAUCAYAAADWQYA8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJkSURBVFhH7ZatoqwgFEbvO5FMpkmTTCfRJpFMPoDJNC9gMplIpptsJhNpEslkshm/uxF/GHX03DbBsIKwBVywN/7p+x4XlkuGwyXD4ZLhcMlwcGQ0kIKBMQfvBh5LqPb9pSO6OgX3zfsJ6p3+b2Yj45ErtG1r0TVS4YEJicZ56TMNChojlJre73b6v5uNDCGbt4BeSzyYQNE4bR+p8fQYknqv7/v5tQw5y2hRZyGCIRV8BGEG1Zn2GombYlOatDWyMIBv2vwAYabQjWM3UoAlEkV0g/eL+L6REBRXqgziRieWYvzHNL9Fl8nSF4TI6nbs+7TuhWMZnUYZB2A8hx7bXjmHJ/KxjrRQmaDnYkwjK2Q5GS/k3IMwqWeeW4WM0k4Udo5BBgsQl1NaHcdbGR5+khKa4rvG9DPcUzX0d2UMzxPIVUMCOzRUv6KkGsY6XrfluIAau5x2Yj4VCumdPraanomuRDyn0UqGSnGnnaymWMIsmI2LGGQ85Cz6LN7KcE/pOMbQ3+JvxPCTv+a+hbN1Wz4X0BdN7NPEegnepsKCFbCSUSe7sVMKDR+S1Mv4J/FTmri3lJVhCrxdf+x+8MzZui2HaaLHiead2zP8xvnJcNnIOIk/lvGfJ2OHkwJqcti06bltyD3+RKVNjnfQ1RMh5aUtcisZYw3gzwraFCuqQdUzpEXZa3cj4yT+WMaqZnRUM1SOKLKbebxuy4kMgnYrYBz5a2qjqpxH44+VhxuPIdVUsdcyCLod8ojb22H1E7eVcRx/JsM86yIGd26TtJq+52jdFkfGxSXD4ZLhcMlwuGTM9PgHLZjZr9BFY70AAAAASUVORK5CYII=" InformativeScreenshot="b004167e7896f04666cde16cad5f8d33.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/V3-yNpWtS0K3U5NCY2PR8Q" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <Assign sap:VirtualizedContainerService.HintSize="442,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[intCount]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[intCount&lt;10]" DisplayName="While" sap:VirtualizedContainerService.HintSize="442,557" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                  <ui:InterruptibleWhile.Body>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,391" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="338,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(pgup)][u(hk)]" Version="V3" />
+                      <Assign sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[intCount]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[intCount+1]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ui:InterruptibleWhile.Body>
+                </ui:InterruptibleWhile>
+                <Delay Duration="[in_SmallDelay]" sap:VirtualizedContainerService.HintSize="442,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                <Sequence sap2010:Annotation.AnnotationText="Enter Discrepency Amount on 1st Row of Assignment Tab" DisplayName="Enter Discrepency amount" sap:VirtualizedContainerService.HintSize="442,860" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="strRowNumber" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ClickType="Double" DisplayName="Click 'Input - Remaining Amount'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap(cz1TSUQlM2FBTk9OJTNhdXN3aWVteGNpdm0wMF9FTVhfMDAlM2FuZ3dyZ0twWEhfSzdVcHUzM1JvaFhRQWVkaHJUMWk3VlFmNGFha1VULUFUVA==)/bc/gui/sap/its/webgui/" ContentHash="v1bLJHpal0CvorinjTC55g" DesignTimeRectangle="1094, 232, 108, 12" DesignTimeScaleFactor="0.800000011920929" ElementType="Text" FriendlyName="'Input - Remaining Amount'" FullSelectorArgument="&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl name='InputField' tableCol='11' tableRow='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl name='InputField' tag='INPUT' type='text' class='lsField__input' aaname='' /&gt;" Guid="115e2269-8774-4cc2-8105-834fe11434bc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAAcCAYAAABRekwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKRSURBVGhD7ZhPa+JAGMbz4fwWfoDee9pLb54K0lNPZQ97KsL2UERp6aGllSIWJeQQlpRa4mJdgq2QSiQiPH1n8m9cRgwLbnfY94UfM5k/vof38clMrMVigfF4DNEyjI5MH5boMEwZLFCIzq9ZxDBahD5EsFiYrWwUi2VZ3HKbt4KtYmH+b0qJhfn3qBx8/2vo8rOzGISuqLsiy8nOYii6ou4KXX52FoMQRayej+BHsmYUK0w8B3u/FbqgjSMnxHu6Gss5epdXyvwdzoZzxOk0ohmajbacy3KysxhKpf4D7hKIgxFOGl0c9aZSCBP3ThFAQfV2SkJYwXcc1Bp9NEdCFnN0viXzX9w5PS9g9/o076DztiJBTXFaZ2cxnsogpCrRv5+KmQni0FsA4QS19FnlIqDlL0+o5mMP6NFPvHpd6vdhk0O9eg/5+kr9CY+05fGencV4jofkDG9j7OfFJ6R7hLhQxyS2FMPEvVkbPx2RewTP1H+GT67j3qp7bshdgPehrc3PzmIQ0ilkoZUCtwJ6FenEIsQA+IP1cSk48RvnYl8Mu7U+L3KoYmFnMZTPEIsKO4tBfMZriJ3FUCr3M6oSCUM54EoBbTjgnr3QchJGccBNBJQccLvysCuEke+pJ26kHnBV2FkMIit2TO5SXJ3pajxI3aM1gh9M0UyvxskrakXuolydlyS2r8n8vrxdxXDVq3MU4JjmspzsLIYiClxt0PWWBJNEDN+1C+cg54nFOeQyfT5oo9abkWDSiEJ0WslHt4QrnHjFR7k4LISmy8/OYhBFkXdPlpOdxVB0Rd0VuvzsLAahK+quyHKyszB/xFZn4ZZb0QrYWZjSsFiY0uRiER2GKYN1/fNadjg4NkWiD+AD0A5+SPRCRKIAAAAASUVORK5CYII=" InformativeScreenshot="ed66443162a05a7493ee956fa74a1440.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/cK7RMIG_JU296I9T_zP74g" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <Assign sap:VirtualizedContainerService.HintSize="338,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strRowNumber]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">1</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Input - Text for Rem/Partial Payt'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="pZF6hvPbb0uN_aEVJeXbMA" DesignTimeRectangle="1075, 251, 229, 14" DesignTimeScaleFactor="0.8999999761581421" FriendlyName="'Input - Text for Rem/Partial Payt'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl name='InputField' tableCol='15' tableRow='{0}' /&gt;&quot;, strRowNumber)]" FuzzySelectorArgument="&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl name='InputField' tag='SPAN' type='' class='lsField__input' aaname='' /&gt;" Guid="24b7158f-e82d-496a-88a4-a8c1cd6604ed" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQMAAAAUCAYAAACJdVhcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dRBAcAwEMOw8edZAkegWz0YlT5BED/7s9Y6A1zo/H9mthjA5cQAiBgAEQMgYgBEDICIARAxACIGQMQAiBgAEQMgYgBEDICIARAxACIGQMQAiBgA+WMw+wXZh5SFp98jAAAAAABJRU5ErkJggg==" InformativeScreenshot="d09dd9aa9ec51022d9b5d3e181cdcb22.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/0DRURr2g3kOBBvfDpcAkFA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Input - Text for Rem/Partial Payt'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="338,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Text="[in_strRemainingBalanceText+&quot;-&quot;+ in_strOpenAmount]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="pZF6hvPbb0uN_aEVJeXbMA" DesignTimeRectangle="1075, 251, 229, 14" DesignTimeScaleFactor="0.8999999761581421" FriendlyName="'Input - Text for Rem/Partial Payt'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl name='InputField' tableCol='15' tableRow='{0}' /&gt;&quot;, strRowNumber)]" FuzzySelectorArgument="&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl name='InputField' tag='SPAN' type='' class='lsField__input' aaname='' /&gt;" Guid="24b7158f-e82d-496a-88a4-a8c1cd6604ed" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQMAAAAUCAYAAACJdVhcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dRBAcAwEMOw8edZAkegWz0YlT5BED/7s9Y6A1zo/H9mthjA5cQAiBgAEQMgYgBEDICIARAxACIGQMQAiBgAEQMgYgBEDICIARAxACIGQMQAiBgA+WMw+wXZh5SFp98jAAAAAABJRU5ErkJggg==" InformativeScreenshot="d09dd9aa9ec51022d9b5d3e181cdcb22.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/0DRURr2g3kOBBvfDpcAkFA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                </Sequence>
+                <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="442,605" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+                  <ui:RetryScope.ActivityBody>
+                    <ActivityAction>
+                      <Sequence DisplayName="Toggle Minimize Screen" sap:VirtualizedContainerService.HintSize="400,268" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ClickType="Single" DisplayName="Click 'Button - Toggle Full Screen'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable ContentHash="gcqq-dc7U0uRe4tiZaL2Kg" DesignTimeRectangle="348, 163, 19, 19" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Button - Toggle Full Screen'" FullSelectorArgument="&lt;ctrl name='Toggle full screen' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Toggle full screen' role='push button' automationid='' /&gt;" Guid="0f87b047-7420-4437-82e1-6dc93ee2dcb9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD0SURBVEhL3ZW7DYMwFEUzVBZKxQZMgJSGjgWoKKBIRY2ExAgImMFQU974JhAcMMgx0KQ4EtbTPf7o2Vz6vsdZ/Im86zqkaYokSaxgtm1bvZzFqqoghLCCWTq0cs6uC/0CHTvkNSL/gWYYN3EAL5vqhnIpce+43hRcShV5FsKJayVjLC/g+YUyHhnk5QOOpn6APIDz2sW8tlsukPvfx2Vx5uvyLQzlJiwXYCTf2vqEpfwDu8KVvTxruTe75DLMrpATHCznJQqR83uUcxfKURGrS5TLXo7KIbS68iWGK7djVX7qk8uHnkXObgOz/OFo5UdzorzHE6psdeER9K9PAAAAAElFTkSuQmCC" InformativeScreenshot="ba248c5dd6b0a5477ebfab740bac107f.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/-j6fFWLB3E2_PxSOS-l3ig" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin*' title='Edit Bank Statement Item*' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V1" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:RetryScope.ActivityBody>
+                  <ui:RetryScope.Condition>
+                    <ActivityFunc x:TypeArguments="x:Boolean">
+                      <uix:NCheckState DisplayName="Check App State 'Tab - Assignment'" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="334,177" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Timeout="[in_dblSmallDelay]" Version="V3">
+                        <uix:NCheckState.IfExists>
+                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,114" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </uix:NCheckState.IfExists>
+                        <uix:NCheckState.IfNotExists>
+                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,114" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </uix:NCheckState.IfNotExists>
+                        <uix:NCheckState.Target>
+                          <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=inplace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="cOhyh5VheUaBDQEoo8hHuQ" DesignTimeRectangle="128, 543, 64, 29" DesignTimeScaleFactor="0.8999999761581421" ElementType="Text" FriendlyName="'Tab - Assignment'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='tab' aaname='Assignment' innertext='Assignment' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='tab' aaname='Assignment' innertext='Assignment' tag='DIV' type='' class='lsTbsv5-ItemTitle' check:text='Assignment' /&gt;" Guid="512e0a3f-ea69-424d-9566-106308e2bcfc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAhCAYAAABgKg1bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABPSURBVGhD7dAxAQAwEAOh+jedzn8aQAJvHEJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEHJsHzxb7u+s8hOaAAAAAElFTkSuQmCC" InformativeScreenshot="87bb051b51928839784b64c527cccf1e.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/RnUC0wFB80ydjS5TNGdmbw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NCheckState.Target>
+                      </uix:NCheckState>
+                    </ActivityFunc>
+                  </ui:RetryScope.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:RetryScope>
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.TargetApp>
+            <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" ContentHash="SYrOvqi_ckmALw6TpKXOrg" IconBase64="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" InformativeScreenshot="d4142db22ede2347f6348133d509a4ac.jpg" Reference="HLXiEbo_V0mRw1lnkGk7zg/YuCcTKXxr0WIBHMcTn6uUQ" Selector="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" Url="https://launchpad-sp.orica.net/fiori#BankStatementPP-display" />
+          </uix:NApplicationCard.TargetApp>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </uix:NApplicationCard>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,402" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Failed to Enter Discrepency Amount in SAP&quot;]" />
+              <Throw Exception="[new SystemException(&quot;Failed to Enter Discrepency Amount in SAP. Error Message - &quot;+ exception.Message)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ended DiscrepencyScenario workflow&quot;]" />
+  </Sequence>
+</Activity>

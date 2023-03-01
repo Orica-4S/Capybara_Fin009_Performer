@@ -1,0 +1,15 @@
+﻿{
+  "Id": "KdCh3XXYkE--Gkm5l0_rug",
+  "Reference": "HLXiEbo_V0mRw1lnkGk7zg/KdCh3XXYkE--Gkm5l0_rug",
+  "ParentRef": "HLXiEbo_V0mRw1lnkGk7zg/784U2wRfkUax9NQgrmuxuw",
+  "Name": "GBS Acounts Receivable",
+  "Type": "Screen",
+  "Created": "2023-02-07T03:40:19.2399036Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-02-07T03:43:33.6349947Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

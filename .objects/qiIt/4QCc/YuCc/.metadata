@@ -1,0 +1,14 @@
+﻿{
+  "Id": "YuCcTKXxr0WIBHMcTn6uUQ",
+  "Reference": "HLXiEbo_V0mRw1lnkGk7zg/YuCcTKXxr0WIBHMcTn6uUQ",
+  "ParentRef": "HLXiEbo_V0mRw1lnkGk7zg/4QCc-Nsny0qDXi6dKBXVaQ",
+  "Name": "Edit Bank Statement Item",
+  "Type": "Screen",
+  "TaxonomyType": "Screen",
+  "Created": "2023-01-10T05:16:51.998558Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=22.10.3.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-10T05:16:51.998558Z"
+}

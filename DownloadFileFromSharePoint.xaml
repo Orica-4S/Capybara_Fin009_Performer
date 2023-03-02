@@ -159,7 +159,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,382.5 300,432.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1250,6223" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="580,1084" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -173,7 +173,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1150,5884" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+                <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1150,5884" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="2">
                   <ui:RetryScope.ActivityBody>
                     <ActivityAction>
                       <Sequence sap:VirtualizedContainerService.HintSize="1108,5636" sap2010:WorkflowViewState.IdRef="Sequence_24">
@@ -233,7 +233,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </uix:NApplicationCard>
-                        <ui:GetLastDownloadedFile IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Download File" DownloadFolder="[in_DownloadDirectory+strUserName+&quot;\Downloads&quot;]" File="[DownloadedFile]" sap:VirtualizedContainerService.HintSize="1046,3886" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_3">
+                        <ui:GetLastDownloadedFile IgnoreFiles="{x:Null}" DisplayName="Download File" DownloadFolder="[in_DownloadDirectory+strUserName+&quot;\Downloads&quot;]" File="[DownloadedFile]" sap:VirtualizedContainerService.HintSize="1046,3886" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_3" Timeout="10">
                           <ui:GetLastDownloadedFile.Body>
                             <ActivityAction>
                               <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1012,3630" sap2010:WorkflowViewState.IdRef="Sequence_21">
@@ -477,10 +477,10 @@
               </Sequence>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1216,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="546,921" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -488,14 +488,40 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <Sequence sap:VirtualizedContainerService.HintSize="540,852" sap2010:WorkflowViewState.IdRef="Sequence_28">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Error" Message="[&quot;Failed to download &quot;+in_strFileName +&quot; File from SharePoint&quot;]" />
-                    <Throw Exception="[new SystemException(&quot;Failed to download &quot;+in_strFileName +&quot; File from SharePoint&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_9" />
+                    <If sap2010:Annotation.AnnotationText="If File is Not present Throw BE" Condition="[booFileNotPresent]" sap:VirtualizedContainerService.HintSize="478,741" sap2010:WorkflowViewState.IdRef="If_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,201" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Throw Exception="[new BusinessRuleException(in_strFileName+&quot; File not present in SharePoint&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_12" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Error" Message="[&quot;Failed to download &quot;+in_strFileName +&quot; File from SharePoint&quot;]" />
+                          <Throw Exception="[new SystemException(&quot;Failed to download &quot;+in_strFileName +&quot; File from SharePoint&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_13" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
                   </Sequence>
                 </ActivityAction>
               </Catch>

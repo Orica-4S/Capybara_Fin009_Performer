@@ -13,10 +13,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,1327</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>756,1327</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractReferencesFromRemitFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="29">
+    <scg:List x:TypeArguments="x:String" Capacity="58">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -46,6 +46,7 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -94,9 +95,10 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;ExtractReferencesFromRemitFile&#xA;&#xA;[Description]:-&#xA;This workflow will extract Reference Numbers from Remit PDF or Excel.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xD;&#xA;in_ColumnNameDocumentNo&#xD;&#xA;in_ColumnNameAmount&#xD;&#xA;in_columnNameReference&#xD;&#xA;in_strSheetName&#xA;&#xA;[Input]:-&#xA;in_strFilePath - String containing Full File Path of the downloaded File.&#xA;in_strCompanyCode - String containing Company Code.&#xA;in_strCustomerCode - String containing Customer Code.&#xA;&#xD;&#xA;&#xA;[Output]:-&#xA;out_PageCount - Integer containing Page count of PDF.&#xA;out_RemitReferences - DataTable containing Remit References Information.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="ExtractReferencesFromRemitFile" sap:VirtualizedContainerService.HintSize="673,1262" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;ExtractReferencesFromRemitFile&#xA;&#xA;[Description]:-&#xA;This workflow will extract Reference Numbers from Remit PDF or Excel.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;in_ColumnNameDocumentNo&#xA;in_ColumnNameAmount&#xA;in_columnNameReference&#xA;in_strSheetName&#xA;&#xA;[Input]:-&#xA;in_strFilePath - String containing Full File Path of the downloaded File.&#xA;in_strCompanyCode - String containing Company Code.&#xA;in_strCustomerCode - String containing Customer Code.&#xA;&#xA;&#xA;[Output]:-&#xA;out_PageCount - Integer containing Page count of PDF.&#xA;out_RemitReferences - DataTable containing Remit References Information.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="ExtractReferencesFromRemitFile" sap:VirtualizedContainerService.HintSize="673,1262" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Temp" />
     </Flowchart.Variables>
@@ -206,7 +208,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">150,589.5 150,639.5 210,639.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="Remove Unnesecary Rows from DataTable" DisplayName="Filter References" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <Sequence sap2010:Annotation.AnnotationText="Remove Unnesecary Rows from DataTable" DisplayName="Filter References" sap:VirtualizedContainerService.HintSize="636,2196" sap2010:WorkflowViewState.IdRef="Sequence_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -234,13 +236,13 @@
                     <InArgument x:TypeArguments="sd:DataTable">[dt_Temp.Clone]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Temp]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="574,25" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Temp]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="574,966" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                   <ui:ForEachRow.Body>
                     <ActivityAction x:TypeArguments="sd:DataRow">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,1398" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,850" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="strReferenceNumber" />
                         </Sequence.Variables>
@@ -257,7 +259,7 @@
                             <InArgument x:TypeArguments="x:String">[CurrentRow("Reference").ToString]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <If Condition="[Len(strReferenceNumber.Trim)=8 And (strReferenceNumber.StartsWith(&quot;9&quot;) Or strReferenceNumber.StartsWith(&quot;3&quot;) Or  strReferenceNumber.StartsWith(&quot;7&quot;))]" DisplayName="Reference Starts With 9,3,7 and Length=8" sap:VirtualizedContainerService.HintSize="478,573" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If Condition="[System.Text.RegularExpressions.Regex.IsMatch(strReferenceNumber,&quot;(?&lt;!\d)0*9{1}\d{7}(?!\d)|(?&lt;!\d)0*16{1}\d{8}(?!\d)|(?&lt;!\d)0*17{1}\d{8}(?!\d)|(?&lt;!\d)0*7{1}\d{7}(?!\d)|(?&lt;!\d)0*18{1}\d{8}(?!\d)|(?&lt;!\d)0*3{1}\d{7}(?!\d)&quot;)]" DisplayName="Reference Starts With 9,3,7,16,17,18" sap:VirtualizedContainerService.HintSize="478,573" sap2010:WorkflowViewState.IdRef="If_1">
                           <If.Then>
                             <Sequence sap:VirtualizedContainerService.HintSize="400,297" sap2010:WorkflowViewState.IdRef="Sequence_2">
                               <sap:WorkflowViewStateService.ViewState>
@@ -269,24 +271,47 @@
                             </Sequence>
                           </If.Then>
                         </If>
-                        <If Condition="[Len(strReferenceNumber.Trim)=10 And (strReferenceNumber.StartsWith(&quot;16&quot;) Or strReferenceNumber.StartsWith(&quot;17&quot;) Or strReferenceNumber.StartsWith(&quot;18&quot;))]" DisplayName="If Reference Starts With 16,17 &amp; 18" sap:VirtualizedContainerService.HintSize="478,573" sap2010:WorkflowViewState.IdRef="If_2">
-                          <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="400,297" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="478,25" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,136" sap2010:WorkflowViewState.IdRef="Sequence_12">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[CurrentRow]" DataTable="[out_RemitReferences]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="338,186" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                              <If Condition="[Len(strReferenceNumber.Trim)=10 And (strReferenceNumber.StartsWith(&quot;16&quot;) Or strReferenceNumber.StartsWith(&quot;17&quot;) Or strReferenceNumber.StartsWith(&quot;18&quot;))]" DisplayName="If Reference Starts With 16,17 &amp; 18" sap:VirtualizedContainerService.HintSize="338,25" sap2010:WorkflowViewState.IdRef="If_2">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="400,297" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[CurrentRow.ItemArray]" DataTable="[out_RemitReferences]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="338,186" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                                  </Sequence>
+                                </If.Then>
+                              </If>
                             </Sequence>
-                          </If.Then>
-                        </If>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
                       </Sequence>
                     </ActivityAction>
                   </ui:ForEachRow.Body>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -381,24 +406,12 @@
             <TryCatch.Try>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadRemittanceExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ReadRemittanceExcel.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_References">
-                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_RemitReferences" />
-                  </OutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strPath">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strFilePath" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_strSheetName">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_strSheetName" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_columnNameReference">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_columnNameReference" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameAmount">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ColumnNameAmount" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameDocumentNo">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ColumnNameDocumentNo" />
-                  </InArgument>
+                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_References">[out_RemitReferences]</OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strPath">[in_strFilePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_strSheetName">[in_strSheetName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_columnNameReference">[in_columnNameReference]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameAmount">[in_ColumnNameAmount]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameDocumentNo">[in_ColumnNameDocumentNo]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">

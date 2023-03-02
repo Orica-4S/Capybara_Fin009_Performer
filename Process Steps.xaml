@@ -10,7 +10,7 @@
   <sap:VirtualizedContainerService.HintSize>1240,1233</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessSteps_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="34">
+    <scg:List x:TypeArguments="x:String" Capacity="68">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -45,6 +45,7 @@
       <x:String>UiPath.UIAutomationNext.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -264,6 +265,15 @@
                               <InArgument x:TypeArguments="x:String" x:Key="in_DownloadDirectory">
                                 <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;DownloadDirectory&quot;).ToString" />
                               </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">
+                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_Url&quot;).ToString" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">
+                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
+                              </InArgument>
+                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">
+                                <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;VerySmallDelay&quot;).ToString))" />
+                              </InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -369,15 +379,9 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GiroProcessing.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="GiroProcessing.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_GiroReferences">
-                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_GiroReferences" />
-                                          </InArgument>
-                                          <OutArgument x:TypeArguments="x:String" x:Key="out_strStatusMessage">
-                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strStatusMessage" />
-                                          </OutArgument>
-                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                                          </InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_GiroReferences">[dt_GiroReferences]</InArgument>
+                                          <OutArgument x:TypeArguments="x:String" x:Key="out_strStatusMessage">[out_strStatusMessage]</OutArgument>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -394,7 +398,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">310,1105.02 340,1105.02 340,945.5 470,945.5</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="344,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
                                               <InArgument x:TypeArguments="x:Boolean" x:Key="booGiro">
                                                 <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="booGiro" />
@@ -410,6 +414,18 @@
                                               </InArgument>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_ProcessedRemitsFolder">
                                                 <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_ProcessedFolder&quot;).ToString" />
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">
+                                                <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;VerySmallDelay&quot;).ToString))" />
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">
+                                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;MediumDelay&quot;).ToString)" />
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">
+                                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">
+                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_Url&quot;).ToString" />
                                               </InArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                             <sap:WorkflowViewStateService.ViewState>
@@ -432,54 +448,101 @@
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="800,1165" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V2">
+                                                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="992,1758" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V2">
                                                   <uix:NApplicationCard.Body>
                                                     <ActivityAction x:TypeArguments="x:Object">
                                                       <ActivityAction.Argument>
                                                         <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                                       </ActivityAction.Argument>
-                                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="766,948" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="958,1541" sap2010:WorkflowViewState.IdRef="Sequence_8">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <ui:SetFocus DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Focus on Edit Bank Statement" sap:VirtualizedContainerService.HintSize="704,107" sap2010:WorkflowViewState.IdRef="SetFocus_1">
-                                                          <ui:SetFocus.Target>
-                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="213ba91e-5821-41ed-bc63-1aebff4acb60" InformativeScreenshot="4077c022678b8bcc8b9fe615819dace7" Selector="&lt;webctrl id='shellAppTitle' /&gt;">
-                                                              <ui:Target.TimeoutMS>
-                                                                <InArgument x:TypeArguments="x:Int32" />
-                                                              </ui:Target.TimeoutMS>
-                                                              <ui:Target.WaitForReady>
-                                                                <InArgument x:TypeArguments="ui:WaitForReady" />
-                                                              </ui:Target.WaitForReady>
-                                                            </ui:Target>
-                                                          </ui:SetFocus.Target>
-                                                        </ui:SetFocus>
-                                                        <uix:NClick ClickType="Single" DisplayName="Click 'Button - Select Worklist Again'" sap:VirtualizedContainerService.HintSize="704,157" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V3">
-                                                          <uix:NClick.Target>
-                                                            <uix:TargetAnchorable ContentHash="CqcJF-XM7EKhVp5wnsEISA" DesignTimeRectangle="131, 170, 145, 24" DesignTimeScaleFactor="1" FriendlyName="'Button - Select Worklist Again'" FullSelectorArgument="&lt;ctrl name='Select Worklist Again' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Select Worklist Again' role='push button' automationid='' check:fulltext='Select Worklist Again' /&gt;" Guid="9f508788-9b0d-4d16-a77a-8a417e121bfa" ImageBase64="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" InformativeScreenshot="0da18423c80fca75ff202cc5c61752b4.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/z9TXBsd7wked8XHZ40WsKw" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin*' title='*Bank Statement*' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V1" Visibility="Interactive" />
-                                                          </uix:NClick.Target>
-                                                        </uix:NClick>
-                                                        <uix:NCheckState DisplayName="Check App State 'Button - Yes'" sap:VirtualizedContainerService.HintSize="704,489" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V3">
-                                                          <uix:NCheckState.IfExists>
-                                                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,272" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                                                              <sap:WorkflowViewStateService.ViewState>
-                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                </scg:Dictionary>
-                                                              </sap:WorkflowViewStateService.ViewState>
-                                                              <uix:NClick ClickType="Single" DisplayName="Click 'Button - Yes'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V3">
-                                                                <uix:NClick.Target>
-                                                                  <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="queaXjWiDkSNRKSRLhw4Sg" DesignTimeRectangle="447, 468, 135, 24" DesignTimeScaleFactor="0.8999999761581421" ElementType="Button" FriendlyName="'Button - Yes'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='button' innertext=' Yes' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='button' innertext=' Yes' tag='DIV' type='' class='lsControl--explicitwidth lsControl--fullwidth lsButton lsButton--base urInlineMetricTop lsButton--overflow urNoUserSelect urBtnRadius lsButton--active lsButton--focusable lsButton--up lsButton--design-standard' aaname='' check:text='Yes' /&gt;" Guid="854c20c5-0c9b-4ab1-b74f-8bf77cb05d90" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAAcCAYAAABRekwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKWSURBVGhD7ZrLaxNRFIf9o3SjJO50EQXFB0LAJxLUhYJisaILRRIaDCiMJVGIrS8wVCtW8lAm1j4SqE1S0ZJatFXaWlLb2CY1y59zjhmTmSYy65lz4OPm3tyZzXz85gzcTZCSslgGWXK5HNLpNGKxmOBwVFVFPp+vm/HXjX+y0CQUCiGVSsHlciGZTMro4DEajSIQCLAw5EY2m23IQiYpioJarSYIDDmhU6lUGrJQ9Ljd7pYXCc6EEkZ/LdHcIAtFkPkCwblQS9JWFkkWoRlJFo2p2QXsvqBAHZs0rMfejOFAZwRziz8N605FkqXOnb40Tgcfo7y6xnMS5NCVe+h/m9uw16lIstTR5RgYKvC859UozgSfsDy54gz2XQpjy3E/9nZ0Yyg/xXtm50s4ci3K69tP3UT4+SDWKlXDfe2EJEsTJMph7eGTHAcv38Vw4TMLQb/71HFUq+t4nf2I/Z1hTH//ga4HCfh74qiu/8anL3O4GnmB0nK55b3tgCRLE5QilCY7z93mB1/R5Ehpchy9fh9LK794z3J5FSdu9CI+8gHRlyMs0ujEtK0TRUeSxcTgeBG7zisozszznHqZzcf8G4j0v2NBnmpN8J6L3dh6souTxs7SSLKYeD/5VUuLCL4tlHhuTpZ20GuI+hna3+p/OyDJYsIsi96zPEpkuTehxOlQnvF6oDeOgeEJXl9cWuFm186ySLKYMMtCNH8N7Th7Cw/jGRaEvor09W2+oO1fQ5IsgmUkWQTLSLIIlpFkESwjySJYRpJFsEzbZKGjc2SS+QLBuXi93tbHKulgbiKRgM/n44QhcWR07ujxeNiHQqHAbmQymYYsVLRIFunRIzgX8oBE0YvcMMgiJfW/ElmkLJfIImWxgD/jfyMVzL9gMwAAAABJRU5ErkJggg==" InformativeScreenshot="7f78fbb381668015066830453c462b36.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/GA09kZ9tUkSlWph0wez3aA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
-                                                                </uix:NClick.Target>
-                                                              </uix:NClick>
-                                                            </Sequence>
-                                                          </uix:NCheckState.IfExists>
-                                                          <uix:NCheckState.Target>
-                                                            <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="queaXjWiDkSNRKSRLhw4Sg" DesignTimeRectangle="447, 468, 135, 24" DesignTimeScaleFactor="0.8999999761581421" ElementType="Button" FriendlyName="'Button - Yes'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='button' innertext=' Yes' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='button' innertext=' Yes' tag='DIV' type='' class='lsControl--explicitwidth lsControl--fullwidth lsButton lsButton--base urInlineMetricTop lsButton--overflow urNoUserSelect urBtnRadius lsButton--active lsButton--focusable lsButton--up lsButton--design-standard' aaname='' check:text='Yes' /&gt;" Guid="854c20c5-0c9b-4ab1-b74f-8bf77cb05d90" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAAcCAYAAABRekwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKWSURBVGhD7ZrLaxNRFIf9o3SjJO50EQXFB0LAJxLUhYJisaILRRIaDCiMJVGIrS8wVCtW8lAm1j4SqE1S0ZJatFXaWlLb2CY1y59zjhmTmSYy65lz4OPm3tyZzXz85gzcTZCSslgGWXK5HNLpNGKxmOBwVFVFPp+vm/HXjX+y0CQUCiGVSsHlciGZTMro4DEajSIQCLAw5EY2m23IQiYpioJarSYIDDmhU6lUGrJQ9Ljd7pYXCc6EEkZ/LdHcIAtFkPkCwblQS9JWFkkWoRlJFo2p2QXsvqBAHZs0rMfejOFAZwRziz8N605FkqXOnb40Tgcfo7y6xnMS5NCVe+h/m9uw16lIstTR5RgYKvC859UozgSfsDy54gz2XQpjy3E/9nZ0Yyg/xXtm50s4ci3K69tP3UT4+SDWKlXDfe2EJEsTJMph7eGTHAcv38Vw4TMLQb/71HFUq+t4nf2I/Z1hTH//ga4HCfh74qiu/8anL3O4GnmB0nK55b3tgCRLE5QilCY7z93mB1/R5Ehpchy9fh9LK794z3J5FSdu9CI+8gHRlyMs0ujEtK0TRUeSxcTgeBG7zisozszznHqZzcf8G4j0v2NBnmpN8J6L3dh6souTxs7SSLKYeD/5VUuLCL4tlHhuTpZ20GuI+hna3+p/OyDJYsIsi96zPEpkuTehxOlQnvF6oDeOgeEJXl9cWuFm186ySLKYMMtCNH8N7Th7Cw/jGRaEvor09W2+oO1fQ5IsgmUkWQTLSLIIlpFkESwjySJYRpJFsEzbZKGjc2SS+QLBuXi93tbHKulgbiKRgM/n44QhcWR07ujxeNiHQqHAbmQymYYsVLRIFunRIzgX8oBE0YvcMMgiJfW/ElmkLJfIImWxgD/jfyMVzL9gMwAAAABJRU5ErkJggg==" InformativeScreenshot="7f78fbb381668015066830453c462b36.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/GA09kZ9tUkSlWph0wez3aA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
-                                                          </uix:NCheckState.Target>
-                                                        </uix:NCheckState>
+                                                        <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="896,1426" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+                                                          <ui:RetryScope.ActivityBody>
+                                                            <ActivityAction>
+                                                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="766,944" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <ui:SetFocus DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Focus on Edit Bank Statement" sap:VirtualizedContainerService.HintSize="704,107" sap2010:WorkflowViewState.IdRef="SetFocus_1">
+                                                                  <ui:SetFocus.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="213ba91e-5821-41ed-bc63-1aebff4acb60" InformativeScreenshot="4077c022678b8bcc8b9fe615819dace7" Selector="&lt;webctrl id='shellAppTitle' /&gt;">
+                                                                      <ui:Target.TimeoutMS>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:Target.TimeoutMS>
+                                                                      <ui:Target.WaitForReady>
+                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                      </ui:Target.WaitForReady>
+                                                                    </ui:Target>
+                                                                  </ui:SetFocus.Target>
+                                                                </ui:SetFocus>
+                                                                <uix:NClick ClickType="Single" DisplayName="Click 'Button - Select Worklist Again'" sap:VirtualizedContainerService.HintSize="704,157" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V3">
+                                                                  <uix:NClick.Target>
+                                                                    <uix:TargetAnchorable ContentHash="CqcJF-XM7EKhVp5wnsEISA" DesignTimeRectangle="131, 170, 145, 24" DesignTimeScaleFactor="1" FriendlyName="'Button - Select Worklist Again'" FullSelectorArgument="&lt;ctrl name='Select Worklist Again' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Select Worklist Again' role='push button' automationid='' check:fulltext='Select Worklist Again' /&gt;" Guid="9f508788-9b0d-4d16-a77a-8a417e121bfa" ImageBase64="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" InformativeScreenshot="0da18423c80fca75ff202cc5c61752b4.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/z9TXBsd7wked8XHZ40WsKw" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin*' title='*Bank Statement*' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V1" Visibility="Interactive" />
+                                                                  </uix:NClick.Target>
+                                                                </uix:NClick>
+                                                                <uix:NCheckState DisplayName="Check App State 'Button - Yes'" sap:VirtualizedContainerService.HintSize="704,489" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V3">
+                                                                  <uix:NCheckState.IfExists>
+                                                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,272" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                      <uix:NClick ClickType="Single" DisplayName="Click 'Button - Yes'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V3">
+                                                                        <uix:NClick.Target>
+                                                                          <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="queaXjWiDkSNRKSRLhw4Sg" DesignTimeRectangle="447, 468, 135, 24" DesignTimeScaleFactor="0.8999999761581421" ElementType="Button" FriendlyName="'Button - Yes'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='button' innertext=' Yes' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='button' innertext=' Yes' tag='DIV' type='' class='lsControl--explicitwidth lsControl--fullwidth lsButton lsButton--base urInlineMetricTop lsButton--overflow urNoUserSelect urBtnRadius lsButton--active lsButton--focusable lsButton--up lsButton--design-standard' aaname='' check:text='Yes' /&gt;" Guid="854c20c5-0c9b-4ab1-b74f-8bf77cb05d90" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAAcCAYAAABRekwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKWSURBVGhD7ZrLaxNRFIf9o3SjJO50EQXFB0LAJxLUhYJisaILRRIaDCiMJVGIrS8wVCtW8lAm1j4SqE1S0ZJatFXaWlLb2CY1y59zjhmTmSYy65lz4OPm3tyZzXz85gzcTZCSslgGWXK5HNLpNGKxmOBwVFVFPp+vm/HXjX+y0CQUCiGVSsHlciGZTMro4DEajSIQCLAw5EY2m23IQiYpioJarSYIDDmhU6lUGrJQ9Ljd7pYXCc6EEkZ/LdHcIAtFkPkCwblQS9JWFkkWoRlJFo2p2QXsvqBAHZs0rMfejOFAZwRziz8N605FkqXOnb40Tgcfo7y6xnMS5NCVe+h/m9uw16lIstTR5RgYKvC859UozgSfsDy54gz2XQpjy3E/9nZ0Yyg/xXtm50s4ci3K69tP3UT4+SDWKlXDfe2EJEsTJMph7eGTHAcv38Vw4TMLQb/71HFUq+t4nf2I/Z1hTH//ga4HCfh74qiu/8anL3O4GnmB0nK55b3tgCRLE5QilCY7z93mB1/R5Ehpchy9fh9LK794z3J5FSdu9CI+8gHRlyMs0ujEtK0TRUeSxcTgeBG7zisozszznHqZzcf8G4j0v2NBnmpN8J6L3dh6souTxs7SSLKYeD/5VUuLCL4tlHhuTpZ20GuI+hna3+p/OyDJYsIsi96zPEpkuTehxOlQnvF6oDeOgeEJXl9cWuFm186ySLKYMMtCNH8N7Th7Cw/jGRaEvor09W2+oO1fQ5IsgmUkWQTLSLIIlpFkESwjySJYRpJFsEzbZKGjc2SS+QLBuXi93tbHKulgbiKRgM/n44QhcWR07ujxeNiHQqHAbmQymYYsVLRIFunRIzgX8oBE0YvcMMgiJfW/ElmkLJfIImWxgD/jfyMVzL9gMwAAAABJRU5ErkJggg==" InformativeScreenshot="7f78fbb381668015066830453c462b36.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/GA09kZ9tUkSlWph0wez3aA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                                                                        </uix:NClick.Target>
+                                                                      </uix:NClick>
+                                                                    </Sequence>
+                                                                  </uix:NCheckState.IfExists>
+                                                                  <uix:NCheckState.Target>
+                                                                    <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="queaXjWiDkSNRKSRLhw4Sg" DesignTimeRectangle="447, 468, 135, 24" DesignTimeScaleFactor="0.8999999761581421" ElementType="Button" FriendlyName="'Button - Yes'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='button' innertext=' Yes' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aria-role='button' innertext=' Yes' tag='DIV' type='' class='lsControl--explicitwidth lsControl--fullwidth lsButton lsButton--base urInlineMetricTop lsButton--overflow urNoUserSelect urBtnRadius lsButton--active lsButton--focusable lsButton--up lsButton--design-standard' aaname='' check:text='Yes' /&gt;" Guid="854c20c5-0c9b-4ab1-b74f-8bf77cb05d90" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAAcCAYAAABRekwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKWSURBVGhD7ZrLaxNRFIf9o3SjJO50EQXFB0LAJxLUhYJisaILRRIaDCiMJVGIrS8wVCtW8lAm1j4SqE1S0ZJatFXaWlLb2CY1y59zjhmTmSYy65lz4OPm3tyZzXz85gzcTZCSslgGWXK5HNLpNGKxmOBwVFVFPp+vm/HXjX+y0CQUCiGVSsHlciGZTMro4DEajSIQCLAw5EY2m23IQiYpioJarSYIDDmhU6lUGrJQ9Ljd7pYXCc6EEkZ/LdHcIAtFkPkCwblQS9JWFkkWoRlJFo2p2QXsvqBAHZs0rMfejOFAZwRziz8N605FkqXOnb40Tgcfo7y6xnMS5NCVe+h/m9uw16lIstTR5RgYKvC859UozgSfsDy54gz2XQpjy3E/9nZ0Yyg/xXtm50s4ci3K69tP3UT4+SDWKlXDfe2EJEsTJMph7eGTHAcv38Vw4TMLQb/71HFUq+t4nf2I/Z1hTH//ga4HCfh74qiu/8anL3O4GnmB0nK55b3tgCRLE5QilCY7z93mB1/R5Ehpchy9fh9LK794z3J5FSdu9CI+8gHRlyMs0ujEtK0TRUeSxcTgeBG7zisozszznHqZzcf8G4j0v2NBnmpN8J6L3dh6souTxs7SSLKYeD/5VUuLCL4tlHhuTpZ20GuI+hna3+p/OyDJYsIsi96zPEpkuTehxOlQnvF6oDeOgeEJXl9cWuFm186ySLKYMMtCNH8N7Th7Cw/jGRaEvor09W2+oO1fQ5IsgmUkWQTLSLIIlpFkESwjySJYRpJFsEzbZKGjc2SS+QLBuXi93tbHKulgbiKRgM/n44QhcWR07ujxeNiHQqHAbmQymYYsVLRIFunRIzgX8oBE0YvcMMgiJfW/ElmkLJfIImWxgD/jfyMVzL9gMwAAAABJRU5ErkJggg==" InformativeScreenshot="7f78fbb381668015066830453c462b36.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/GA09kZ9tUkSlWph0wez3aA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                                                                  </uix:NCheckState.Target>
+                                                                </uix:NCheckState>
+                                                              </Sequence>
+                                                            </ActivityAction>
+                                                          </ui:RetryScope.ActivityBody>
+                                                          <ui:RetryScope.Condition>
+                                                            <ActivityFunc x:TypeArguments="x:Boolean">
+                                                              <uix:NCheckState DisplayName="Check App State 'Selection of Bank Statements Items'" sap:VirtualizedContainerService.HintSize="854,322" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V3">
+                                                                <uix:NCheckState.IfExists>
+                                                                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                  </Sequence>
+                                                                </uix:NCheckState.IfExists>
+                                                                <uix:NCheckState.IfNotExists>
+                                                                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                  </Sequence>
+                                                                </uix:NCheckState.IfNotExists>
+                                                                <uix:NCheckState.Target>
+                                                                  <uix:TargetAnchorable BrowserURL="https://sapem-qa.es.orica.net/sap(cz1TSUQlM2FBTk9OJTNhdXN3aWVtcWNpdm0wMF9FTVFfMDAlM2FLTFd5VThOeUhuRmwwZ29GTkxNeGQ2SGxlaGVJZUFwUkdBUmR3VUZyLUFUVA==)/bc/gui/sap/its/webgui/" ContentHash="atBI_YbOMUOX_4PKbYukCA" DesignTimeRectangle="125, 141, 1131, 40" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Selection of Bank Statements Items'" FullSelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aaname='*Selection of Bank Statement Items*' /&gt;" FuzzySelectorArgument="&lt;webctrl id='*BankStatement*' /&gt;&lt;webctrl aaname='*Selection of Bank Statement Items*' tag='DIV' type='' class='urPWTitleText lsResponsivePaddingLeft' check:text='Selection of Bank Statement Items' /&gt;" Guid="350afa18-46fa-40ee-be2b-7a5916b55678" ImageBase64="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" InformativeScreenshot="d5487d982dd4e6c5bfbd7793eca74da4.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/FhpHMVoFF0-rRev0Z6OIsA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                                                                </uix:NCheckState.Target>
+                                                              </uix:NCheckState>
+                                                            </ActivityFunc>
+                                                          </ui:RetryScope.Condition>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                        </ui:RetryScope>
                                                       </Sequence>
                                                     </ActivityAction>
                                                   </uix:NApplicationCard.Body>
@@ -596,13 +659,36 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DownloadFileFromSharePoint.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="DownloadFileFromSharePoint.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">[strFileName]</InArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_FilePath">[strRemitFilePath]</OutArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">[in_Config("SharePoint_RemitFolder").ToString]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">[in_Config("SharePoint_GiroFolder").ToString]</InArgument>
-                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_booGiro">[booGiro]</InArgument>
-                                  <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">[Double.Parse(in_Config("MediumDelay").ToString)]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_DownloadDirectory">[in_Config("DownloadDirectory").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">
+                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFileName" />
+                                  </InArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_FilePath">
+                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strRemitFilePath" />
+                                  </OutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">
+                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_RemitFolder&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">
+                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_GiroFolder&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_booGiro">
+                                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="booGiro" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">
+                                    <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;MediumDelay&quot;).ToString)" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_DownloadDirectory">
+                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;DownloadDirectory&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">
+                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_Url&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">
+                                    <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">
+                                    <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;VerySmallDelay&quot;).ToString))" />
+                                  </InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -648,24 +734,12 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="RemitProcessing.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="RemitProcessing.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_References">
-                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_RemitReferences" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_strCompanyCode">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCoCode" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intPdfPageCount">
-                                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intPageCount" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_strCustomerCode">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strAccount" />
-                                          </InArgument>
-                                          <OutArgument x:TypeArguments="x:String" x:Key="out_strStatusMessage">
-                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strStatusMessage" />
-                                          </OutArgument>
-                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                                          </InArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_References">[dt_RemitReferences]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_strCompanyCode">[strCoCode]</InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intPdfPageCount">[intPageCount]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_strCustomerCode">[strAccount]</InArgument>
+                                          <OutArgument x:TypeArguments="x:String" x:Key="out_strStatusMessage">[out_strStatusMessage]</OutArgument>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -682,7 +756,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">985.5,1038.02 955.5,1038.02 955.5,945.5 670,945.5</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="344,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
                                               <InArgument x:TypeArguments="x:Boolean" x:Key="booGiro">
                                                 <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="booGiro" />
@@ -698,6 +772,18 @@
                                               </InArgument>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_ProcessedRemitsFolder">
                                                 <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_ProcessedFolder&quot;).ToString" />
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">
+                                                <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;VerySmallDelay&quot;).ToString))" />
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">
+                                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;MediumDelay&quot;).ToString)" />
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">
+                                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">
+                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_Url&quot;).ToString" />
                                               </InArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                             <sap:WorkflowViewStateService.ViewState>

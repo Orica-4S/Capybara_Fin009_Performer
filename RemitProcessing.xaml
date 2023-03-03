@@ -6,11 +6,12 @@
     <x:Property Name="in_strCustomerCode" Type="InArgument(x:String)" />
     <x:Property Name="out_strStatusMessage" Type="OutArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_AssignAll" Type="InArgument(x:Boolean)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,1561</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,1576</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RemitProcessing_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -92,7 +93,7 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;RemitProcessing&#xA;&#xA;[Description]:-&#xA;This workflow will enter details from Remit PDF or Excel.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;in_Config&#xA;&#xA;[Input]:-&#xA;in_dtReferences - DataTable containing Remit Reference details.&#xA;in_strCompanyCode - String containing Company Code&#xA;in_strPageCount - Integer containing Number of pages in Remit Pdf&#xA;in_strCustomerCode - String containing Customer Code&#xA;&#xA;[Output]:-&#xA;out_strStatusMessage - String containing Status Message if SAP.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="RemitProcessing" sap:VirtualizedContainerService.HintSize="1088,1496" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;RemitProcessing&#xA;&#xA;[Description]:-&#xA;This workflow will enter details from Remit PDF or Excel.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;in_Config&#xA;&#xA;[Input]:-&#xA;in_dtReferences - DataTable containing Remit Reference details.&#xA;in_strCompanyCode - String containing Company Code&#xA;in_strPageCount - Integer containing Number of pages in Remit Pdf&#xA;in_strCustomerCode - String containing Customer Code&#xD;&#xA;in_AssignAll - Boolean containing Flag. If True Assign All References in SAP in one go else not.&#xA;&#xA;[Output]:-&#xA;out_strStatusMessage - String containing Status Message if SAP.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="RemitProcessing" sap:VirtualizedContainerService.HintSize="1088,1511" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_UnfoundReferences" />
       <Variable x:TypeArguments="x:String" Name="strReferences" />
@@ -233,14 +234,17 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Assign All References in SAP in One Go or Not?&#xA;If Multipage Pdf and Company Code=1031&#xA;" Condition="False" DisplayName="Assign All Together?" sap:VirtualizedContainerService.HintSize="113,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                <FlowDecision x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Assign All References in SAP in One Go or Not?" DisplayName="Assign All Together?" sap:VirtualizedContainerService.HintSize="113,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                  <FlowDecision.Condition>
+                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_AssignAll" />
+                  </FlowDecision.Condition>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <av:Point x:Key="ShapeLocation">410.64166666666665,569.5</av:Point>
                       <av:Size x:Key="ShapeSize">113,87</av:Size>
                       <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                      <av:PointCollection x:Key="FalseConnector">523.6416666666667,613 553.6416666666664,613 553.6416666666664,608.52 813.6416666666667,608.52</av:PointCollection>
+                      <av:PointCollection x:Key="FalseConnector">523.6416666666667,613 553.6416666666667,613 553.6416666666667,608.02 813.6416666666667,608.02</av:PointCollection>
                       <av:PointCollection x:Key="TrueConnector">410.64166666666665,613 380.64166666666665,613 380.64166666666665,608.02 250.64166666666665,608.02</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -330,18 +334,10 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Simulate&amp;Post.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Simulate&amp;Post.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <OutArgument x:TypeArguments="x:String" x:Key="out_strStatus">
-                                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_strStatusMessage" />
-                                      </OutArgument>
-                                      <InArgument x:TypeArguments="x:Double" x:Key="in_dblSmallDelay">
-                                        <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;SmallDelay&quot;).ToString)" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_SmallDelay">
-                                        <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;SmallDelay&quot;).ToString))" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:Double" x:Key="in_dblLargeDelay">
-                                        <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
-                                      </InArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_strStatus">[out_strStatusMessage]</OutArgument>
+                                      <InArgument x:TypeArguments="x:Double" x:Key="in_dblSmallDelay">[Double.Parse(in_Config("SmallDelay").ToString)]</InArgument>
+                                      <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_SmallDelay">[TimeSpan.FromSeconds(Integer.Parse(in_Config("SmallDelay").ToString))]</InArgument>
+                                      <InArgument x:TypeArguments="x:Double" x:Key="in_dblLargeDelay">[Double.Parse(in_Config("LargeDelay").ToString)]</InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">

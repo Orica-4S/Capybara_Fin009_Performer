@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,1287</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,2983</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AssignAllReferencesInSap_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -93,28 +93,29 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;AssignAllReferencesInSap&#xA;&#xA;[Description]:-&#xA;This workflow will assign all the items in Assignment Tab in SAP.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:- &#xA;in_VerySmallDelay - Delay&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="AssignAllReferencesInSap" sap:VirtualizedContainerService.HintSize="502,1222" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;AssignAllReferencesInSap&#xA;&#xA;[Description]:-&#xA;This workflow will assign all the items in Assignment Tab in SAP.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:- &#xA;in_VerySmallDelay - Delay&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="AssignAllReferencesInSap" sap:VirtualizedContainerService.HintSize="638,2918" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started AssignAllReferencesInSap workflow&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="440,565" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="576,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started AssignAllReferencesInSap workflow&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="576,2276" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="221,25" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="6ac3ace7-4435-4374-9377-db07bd90da14" Version="V2">
+        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="538,2048" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="6ac3ace7-4435-4374-9377-db07bd90da14" Version="V2">
           <uix:NApplicationCard.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="504,1573" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="504,1831" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <Delay Duration="[in_VerySmallDelay]" sap:VirtualizedContainerService.HintSize="442,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
                 <uix:NClick ClickType="Single" DisplayName="Click 'Button - Table Selection Menu'" sap:VirtualizedContainerService.HintSize="442,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6ac3ace7-4435-4374-9377-db07bd90da14" Version="V3">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable ContentHash="f51_QKKXMUC0aVwyT4esng" DesignTimeRectangle="19, 186, 17, 23" DesignTimeScaleFactor="1" FriendlyName="'Button - Table Selection Menu'" FullSelectorArgument="&lt;ctrl name='Column for row selection' role='column header' /&gt;&lt;ctrl name='Table selection menu' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Column for row selection' role='column header' /&gt;&lt;ctrl name='Table selection menu' role='grouping' automationid='' /&gt;" Guid="c49d6c77-72f6-447c-b86f-8c6d28c78f85" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABUAAAAbCAYAAACTHcTmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADPSURBVEhL7dQ7C4MwFIbh/v8f4yBeQMH7JIKDq0PxgkXEOgSk09eeDGLQIdV0KQrv5DlPMuX2ZC9Q8zwr67doWZbIskxJC9q2LaZpOhztb256obvDsv0ZWhQFDMOA7/sIgkD4t5c0GoYhHMeBaZocp9Yz66TRKIr4LT3P4wdYlgXbtpHnuTBLSaFVVUHTNI4xxpaFruuOo1SapnBdVy1a1zV0XVeLUnEc85eHICpJkvNo3/domkZoGIbN3FeobBd6oTuoqgT0zEf798f4acQb+6RZ/iiHJLQAAAAASUVORK5CYII=" InformativeScreenshot="447076c7a6376a9d90edd5fd5dcb35f8.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/a0SLrQgPEEayg6Kd4Ksn7g" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin*' title='Edit Bank Statement Item*' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V1" Visibility="Interactive" />
@@ -125,6 +126,7 @@
                     <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="VekkDcsqlEW7g275xqg0yw" DesignTimeRectangle="25, 214, 38, 10" DesignTimeScaleFactor="0.6700000166893005" ElementType="Text" FriendlyName="'Button - Select All'" FullSelectorArgument="&lt;webctrl id='application-BankStatementPP-display' /&gt;&lt;webctrl aria-role='menu' tableRow='1' tag='TABLE' /&gt;&lt;webctrl aaname='Select All' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='application-BankStatementPP-display' /&gt;&lt;webctrl aria-role='menu' tag='TABLE' /&gt;&lt;webctrl aaname='Select All' type='' tag='SPAN' class='' check:innerText='Select All' /&gt;" Guid="403017e3-4d24-40d9-b757-6ce215ca106d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACoAAAAOCAYAAABZ/o57AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG1SURBVEhL7VSrloMwFNx/2l+oqkJVoVBRmChUVFQ+ABWFQmFQqKooFAoVhULxB7M3PAJ02e3unortORVzSucmw2TuDW/DMOAZ8DL6aOyM9iZFdLngQoh1jX5T28FISHPA/wE2Z3hnOezCeW2LXK78xigVeIp6fO5htIbpl9oNfmvU5pC5PajRO0WGMhPI7czdN9qh5Ay6tjdJtigShkRwRLxA67iNUdcFFguIOEJqes9FEQePQ6iqhVEhzkwgM91Gl0AHEFmLockgloPcN0roahQyRhCE4NnUetcab6pKICoy48UMpG9bAx1naBwXavqdNR1oPTtI1OZkvnHPDTIx6/zI6Aa1pjRog5FnMKGg1IQxlUWMEmEh9zWlSrSOk2avd2iUjLDTeB9GnDiKblr7vdHeIJWFLzSzUVtQ212KyzoHJ3Z1zwbqNr0jzqjPRulAPK3X/3WKpJhDGLUno+OoEXaJtqXwtz6S1WyaZpTTV4BzxHGKqzt1oxEGHCVdgHUeI3oRzRvt6a5y0glphBzXVUiCABe9Jr0dqRF9RXNeoPPaHaokQDDv+bL1/w0vo4/Gkxgd8AHdejcpG7r3nwAAAABJRU5ErkJggg==" InformativeScreenshot="3bf878b5793204dd350f21d5130a96de.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/ZbkUJS7xQ020XApGDOFROg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                   </uix:NClick.Target>
                 </uix:NClick>
+                <Delay Duration="[in_VerySmallDelay]" sap:VirtualizedContainerService.HintSize="442,90" sap2010:WorkflowViewState.IdRef="Delay_3" />
                 <uix:NClick ClickType="Single" DisplayName="Click 'Button - Assign Items'" sap:VirtualizedContainerService.HintSize="442,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6ac3ace7-4435-4374-9377-db07bd90da14" Version="V3">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable ContentHash="jl7yqQ-PNEqFJJbE60p_fw" DesignTimeRectangle="41, 164, 53, 17" DesignTimeScaleFactor="1" FriendlyName="'Button - Assign Items'" FullSelectorArgument="&lt;ctrl name='Assign Items' role='push button' /&gt;&lt;ctrl role='grouping' text='Assign Items' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Assign Items' role='push button' /&gt;&lt;ctrl role='grouping' text='Assign Items' automationid='' check:text='Assign Items' /&gt;" Guid="bce4c60e-9e76-494a-b66d-8ed98dd91b6e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADkAAAAVCAYAAAD8dkbIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKaSURBVFhH7VfNi9pwEO0f1b+hp5568lQoeMpFYQ96yUEESxpoEBQsRsQNKKwEVvygRJDFBVGIoOJBejBQImyXLUh6yPF1fvnQ6Lq7LbVsiT08SOaXzJs3byaQF7ZtI+w4DZH1eh1hRqfTCb+ThmGcyLgeCoYNpypyDOHdewjD/fjDMNsFxNurg2dPYqjgpTQ+fHYk3Bc5rELQukj/ZeINAiJ1SYG+f34E3BOp5xQMrDWuRJ/wK5qpLBKiDI5vYGYx52REU2UkknnUpj+cQl3n7zArkav0biL5EZGYSjlGEDIKKnyW7rOQhnc7fBuRXz6D44gn18eS4stL4sswDhlNw61DpSYUM24e4VxF+iyLN5wM7YbOrQmKyQLSYgFvxT7MAMeeSBpVcYA1Xa97Zbfwmy4SmT5uN898g5byEvsxX6RJhUojNza9AH/JRphyxhpYsJg1oCLc/MF3XSdJRNJrrNGiPN4kfe+Dd95h52VcUZPZeZRq2qmT+LjSfJs3gF2RRPiKYw4wfEDk08SJm9eq40xU7Dpdts0RKuRuhEg11mVfJBPBt5xnbjVywheZbHmdDV57OCSSYq95BVKu6qI2piY/0ASfm6Zo0VYQp9rjpclOI3dE6lLQIXJMvMAscL6s5SHp23uHLEeN2BCxkSqjQoVV2nPP/V8VuUKThDki2ER4Tm2ee1LkFgMpj6a5vQ+IpALIhWABi/M8ir0+hDMZ6VwZcV6lnVxBk9iOVsm1AirTdYBojiJHExCj3SChtevfcZLx0Y7FZGhUINvJCC8jwVMNzh4/LnI9bVB9MgQyKv74Tv4hdBLeI9Hs2lpC9Z15ZhxXpNEFT19Dge0RfeX2d+O5cFyR/yj+iwwDnF+tQz+aYcJJ/DTbto2fmLoZeD7zF1UAAAAASUVORK5CYII=" InformativeScreenshot="cd4970f5a16093884d3e2b4d1e4c1caa.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/u886b3Mm10OOsXtgIdM1Cg" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin*' title='Edit Bank Statement Item*' /&gt;" SearchSteps="Selector" SelectionStrategy="AA" Version="V1" Visibility="Interactive" />
@@ -185,17 +187,17 @@
           </uix:NApplicationCard.TargetApp>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </uix:NApplicationCard>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,402" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="542,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -216,6 +218,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Ended AssignAllReferencesInSap workflow&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="576,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Ended AssignAllReferencesInSap workflow&quot;]" />
   </Sequence>
 </Activity>

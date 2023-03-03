@@ -10,7 +10,7 @@
   <sap:VirtualizedContainerService.HintSize>1240,1233</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessSteps_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="68">
+    <scg:List x:TypeArguments="x:String" Capacity="35">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -49,7 +49,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="100">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -114,14 +114,15 @@
       <Variable x:TypeArguments="x:String" Name="strRemitFilePath" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_RemitReferences" />
       <Variable x:TypeArguments="x:Boolean" Name="booGiro" />
-      <Variable x:TypeArguments="x:String" Default="1031" Name="strCoCode" />
+      <Variable x:TypeArguments="x:String" Name="strCoCode" />
       <Variable x:TypeArguments="x:String" Name="strHouseBank" />
       <Variable x:TypeArguments="x:String" Name="strAmount" />
-      <Variable x:TypeArguments="x:String" Default="74024" Name="strAccount" />
+      <Variable x:TypeArguments="x:String" Name="strAccount" />
       <Variable x:TypeArguments="x:String" Name="strStmtDate" />
-      <Variable x:TypeArguments="x:String" Default="15.8.2022 1031 74024 1,657,033.23" Name="strFileName" />
+      <Variable x:TypeArguments="x:String" Name="strFileName" />
       <Variable x:TypeArguments="x:String" Name="strAcctId" />
       <Variable x:TypeArguments="x:Int32" Name="intPageCount" />
+      <Variable x:TypeArguments="x:Boolean" Name="booAssignAll" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -244,36 +245,16 @@
                           </sap:WorkflowViewStateService.ViewState>
                           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DownloadFileFromSharePoint.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="DownloadFileFromSharePoint.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">
-                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFileName" />
-                              </InArgument>
-                              <OutArgument x:TypeArguments="x:String" x:Key="out_FilePath">
-                                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strGiroPdfPath" />
-                              </OutArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">
-                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_RemitFolder&quot;).ToString" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">
-                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_GiroFolder&quot;).ToString" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:Boolean" x:Key="in_booGiro">
-                                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="booGiro" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">
-                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;MediumDelay&quot;).ToString)" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_DownloadDirectory">
-                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;DownloadDirectory&quot;).ToString" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">
-                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_Url&quot;).ToString" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">
-                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">
-                                <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;VerySmallDelay&quot;).ToString))" />
-                              </InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">[strFileName]</InArgument>
+                              <OutArgument x:TypeArguments="x:String" x:Key="out_FilePath">[strGiroPdfPath]</OutArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">[in_Config("SharePoint_RemitFolder").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">[in_Config("SharePoint_GiroFolder").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:Boolean" x:Key="in_booGiro">[booGiro]</InArgument>
+                              <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">[Double.Parse(in_Config("MediumDelay").ToString)]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_DownloadDirectory">[in_Config("DownloadDirectory").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">[in_Config("SharePoint_Url").ToString]</InArgument>
+                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">[Double.Parse(in_Config("LargeDelay").ToString)]</InArgument>
+                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">[TimeSpan.FromSeconds(Integer.Parse(in_Config("VerySmallDelay").ToString))]</InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -400,33 +381,15 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
-                                              <InArgument x:TypeArguments="x:Boolean" x:Key="booGiro">
-                                                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="booGiro" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFileName" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_RemitFolder&quot;).ToString" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_GiroFolder&quot;).ToString" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_ProcessedRemitsFolder">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_ProcessedFolder&quot;).ToString" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">
-                                                <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;VerySmallDelay&quot;).ToString))" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">
-                                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;MediumDelay&quot;).ToString)" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">
-                                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_Url&quot;).ToString" />
-                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:Boolean" x:Key="booGiro">[booGiro]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">[strFileName]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">[in_Config("SharePoint_RemitFolder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">[in_Config("SharePoint_GiroFolder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_ProcessedRemitsFolder">[in_Config("SharePoint_ProcessedFolder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">[TimeSpan.FromSeconds(Integer.Parse(in_Config("VerySmallDelay").ToString))]</InArgument>
+                                              <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">[Double.Parse(in_Config("MediumDelay").ToString)]</InArgument>
+                                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">[Double.Parse(in_Config("LargeDelay").ToString)]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">[in_Config("SharePoint_Url").ToString]</InArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -659,36 +622,16 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DownloadFileFromSharePoint.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="DownloadFileFromSharePoint.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFileName" />
-                                  </InArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_FilePath">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strRemitFilePath" />
-                                  </OutArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_RemitFolder&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_GiroFolder&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_booGiro">
-                                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="booGiro" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">
-                                    <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;MediumDelay&quot;).ToString)" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_DownloadDirectory">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;DownloadDirectory&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_Url&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">
-                                    <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">
-                                    <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;VerySmallDelay&quot;).ToString))" />
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">[strFileName]</InArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_FilePath">[strRemitFilePath]</OutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">[in_Config("SharePoint_RemitFolder").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">[in_Config("SharePoint_GiroFolder").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_booGiro">[booGiro]</InArgument>
+                                  <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">[Double.Parse(in_Config("MediumDelay").ToString)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_DownloadDirectory">[in_Config("DownloadDirectory").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">[in_Config("SharePoint_Url").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">[Double.Parse(in_Config("LargeDelay").ToString)]</InArgument>
+                                  <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">[TimeSpan.FromSeconds(Integer.Parse(in_Config("VerySmallDelay").ToString))]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -716,6 +659,8 @@
                                       <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameAmount">[in_Config("Excel_AmountColumnName").ToString]</InArgument>
                                       <InArgument x:TypeArguments="x:String" x:Key="in_columnNameReference">[in_Config("Excel_ReferenceColumnName").ToString]</InArgument>
                                       <InArgument x:TypeArguments="x:String" x:Key="in_strSheetName">[in_Config("Excel_SheetName").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_AssignAllCustomers_1031">[in_Config("AssignAllCustomers_1031").ToString]</InArgument>
+                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_booAssignAll">[booAssignAll]</OutArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -732,7 +677,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">1085.5,953.02 1085.5,1012.02</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="RemitProcessing.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="RemitProcessing.xaml">
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="RemitProcessing.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="RemitProcessing.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
                                           <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_References">[dt_RemitReferences]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_strCompanyCode">[strCoCode]</InArgument>
@@ -740,6 +685,7 @@
                                           <InArgument x:TypeArguments="x:String" x:Key="in_strCustomerCode">[strAccount]</InArgument>
                                           <OutArgument x:TypeArguments="x:String" x:Key="out_strStatusMessage">[out_strStatusMessage]</OutArgument>
                                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_AssignAll">[booAssignAll]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -756,35 +702,17 @@
                                               <av:PointCollection x:Key="ConnectorLocation">985.5,1038.02 955.5,1038.02 955.5,945.5 670,945.5</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="344,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
-                                              <InArgument x:TypeArguments="x:Boolean" x:Key="booGiro">
-                                                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="booGiro" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFileName" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_RemitFolder&quot;).ToString" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_GiroFolder&quot;).ToString" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_ProcessedRemitsFolder">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_ProcessedFolder&quot;).ToString" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">
-                                                <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.FromSeconds(Integer.Parse(in_Config(&quot;VerySmallDelay&quot;).ToString))" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">
-                                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;MediumDelay&quot;).ToString)" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">
-                                                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;LargeDelay&quot;).ToString)" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">
-                                                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharePoint_Url&quot;).ToString" />
-                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:Boolean" x:Key="booGiro">[booGiro]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">[strFileName]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_strRemitsFolder">[in_Config("SharePoint_RemitFolder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_strGiroFolder">[in_Config("SharePoint_GiroFolder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_ProcessedRemitsFolder">[in_Config("SharePoint_ProcessedFolder").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_VerySmallDelay">[TimeSpan.FromSeconds(Integer.Parse(in_Config("VerySmallDelay").ToString))]</InArgument>
+                                              <InArgument x:TypeArguments="x:Double" x:Key="in_MediumDelay">[Double.Parse(in_Config("MediumDelay").ToString)]</InArgument>
+                                              <InArgument x:TypeArguments="x:Double" x:Key="in_LargeDelay">[Double.Parse(in_Config("LargeDelay").ToString)]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SharePointUrl">[in_Config("SharePoint_Url").ToString]</InArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -903,76 +831,5 @@
     </FlowStep>
     <x:Reference>__ReferenceID17</x:Reference>
     <x:Reference>__ReferenceID18</x:Reference>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">880,124</av:Point>
-          <av:Size x:Key="ShapeSize">200,52</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">980,176 980,255.5 580,255.5</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign DisplayName="Assign Data From Queue" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
-        <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strCoCode]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">1059</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strHouseBank]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">HSBC2</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strAmount]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">114,166.65</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strAccount]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">4269</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strStmtDate]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">26.07.2022</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[strAcctId]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">GBP01</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-          </scg:List>
-        </ui:MultipleAssign.AssignOperations>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:MultipleAssign>
-      <FlowStep.Next>
-        <x:Reference>__ReferenceID16</x:Reference>
-      </FlowStep.Next>
-    </FlowStep>
   </Flowchart>
 </Activity>

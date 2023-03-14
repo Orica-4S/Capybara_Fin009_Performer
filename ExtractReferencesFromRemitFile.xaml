@@ -136,10 +136,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <FlowDecision.True>
-        <FlowDecision x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="Assign All References in SAP in one go or not?" DisplayName="Assign All" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-          <FlowDecision.Condition>
-            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="(in_AssignAllCustomers_1031.ToString.Split(&quot;,&quot;).Contains(in_strCustomerCode)) And (in_strCompanyCode=&quot;1031&quot;)" />
-          </FlowDecision.Condition>
+        <FlowDecision x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="Assign All References in SAP in one go or not?" Condition="[(in_AssignAllCustomers_1031.ToString.Split(&quot;,&quot;).Contains(in_strCustomerCode)) And (in_strCompanyCode=&quot;1031&quot;)]" DisplayName="Assign All" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -155,11 +152,11 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">40.64166666666665,534</av:Point>
-                  <av:Size x:Key="ShapeSize">200,52</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">140.64166666666665,586 140.64166666666665,636</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,94</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">140.64166666666665,628 140.64166666666665,706</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExtractOnlyReferencesFromRemitPDF.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ExtractOnlyReferencesFromRemitPDF.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Extract Only Reference Numbers Using Regex " DisplayName="ExtractOnlyReferencesFromRemitPDF.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ExtractOnlyReferencesFromRemitPDF.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">[in_strFilePath]</InArgument>
                   <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtRemitReferences">[out_RemitReferences]</OutArgument>
@@ -167,6 +164,7 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
@@ -174,9 +172,9 @@
                 <FlowStep x:Name="__ReferenceID8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">9.641666666666652,636</av:Point>
+                      <av:Point x:Key="ShapeLocation">9.641666666666652,706</av:Point>
                       <av:Size x:Key="ShapeSize">262,61</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">140.64166666666665,697 140.64166666666665,1011.5 450,1011.5</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">140.64166666666665,767 140.64166666666665,1081.5 450,1081.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Assign DisplayName="Set Boolean To True" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_3">
@@ -196,7 +194,7 @@
                     <FlowStep x:Name="__ReferenceID0">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">450,985.5</av:Point>
+                          <av:Point x:Key="ShapeLocation">450,1055.5</av:Point>
                           <av:Size x:Key="ShapeSize">200,52</av:Size>
                           <av:PointCollection x:Key="ConnectorLocation">310,190.5 310,256.5</av:PointCollection>
                         </scg:Dictionary>
@@ -219,11 +217,16 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">370,533.5</av:Point>
-                  <av:Size x:Key="ShapeSize">200,52</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">470,585.5 470,615.5 390,615.5 390,736.5</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,94</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">470,627.5 470,657.5 390,657.5 390,736.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="ExtractDetailsFromRemitPDF" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <TryCatch sap2010:Annotation.AnnotationText="Extract Reference &amp; Amount from Inscope PDF" DisplayName="ExtractDetailsFromRemitPDF" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <TryCatch.Try>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExtractReferencesFromRemitPdf.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ExtractReferencesFromRemitPdf.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
@@ -293,7 +296,7 @@
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">290,736.5</av:Point>
                       <av:Size x:Key="ShapeSize">200,123</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">390,859.5 390,909.5 450,909.5</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">390,859.5 390,930.5 450,930.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Sequence sap2010:Annotation.AnnotationText="Remove Unnesecary Rows from DataTable" DisplayName="Filter References" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -443,17 +446,18 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">450,883.5</av:Point>
-                          <av:Size x:Key="ShapeSize">200,52</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">550,936.5 550,985.5</av:PointCollection>
+                          <av:Size x:Key="ShapeSize">200,94</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">550,977.5 550,1055.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SumAmountOfDuplicateReferences_Remittance.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SumAmountOfDuplicateReferences_Remittance.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sum up the amounts for duplicate Reference Number" DisplayName="SumAmountOfDuplicateReferences_Remittance.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SumAmountOfDuplicateReferences_Remittance.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_References">[out_RemitReferences]</InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:InvokeWorkflowFile>
@@ -473,11 +477,16 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">660,643.5</av:Point>
-              <av:Size x:Key="ShapeSize">200,52</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">760,695.5 760,909.5 650,909.5</av:PointCollection>
+              <av:Size x:Key="ShapeSize">200,94</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">760,737.5 760,930.5 650,930.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch DisplayName="Read Remittance Excel" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch sap2010:Annotation.AnnotationText="Extract Reference Number &amp; Amount from Excel" DisplayName="Read Remittance Excel" sap:VirtualizedContainerService.HintSize="200,94" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadRemittanceExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ReadRemittanceExcel.xaml">
                 <ui:InvokeWorkflowFile.Arguments>

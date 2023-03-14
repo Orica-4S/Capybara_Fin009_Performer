@@ -171,15 +171,9 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SelectTransaction&amp;ReadNoteToPayee.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SelectTransaction&amp;ReadNoteToPayee.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_strNoteToPayee">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strNoteToPayee" />
-              </OutArgument>
-              <InArgument x:TypeArguments="x:Double" x:Key="in_SmallDelay">
-                <VisualBasicValue x:TypeArguments="x:Double" ExpressionText="Double.Parse(in_Config(&quot;SmallDelay&quot;).ToString)" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_strOpenAmount">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strOpenAmount" />
-              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strNoteToPayee">[strNoteToPayee]</OutArgument>
+              <InArgument x:TypeArguments="x:Double" x:Key="in_SmallDelay">[Double.Parse(in_Config("SmallDelay").ToString)]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strOpenAmount">[strOpenAmount]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -206,7 +200,7 @@
                       <av:Size x:Key="ShapeSize">200,52</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Throw Exception="[new BusinessRuleException(&quot;Open Amount is already 0.00.&quot;)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="Throw_2">
+                  <Throw DisplayName="Throw BE" Exception="[new BusinessRuleException(&quot;Open Amount is already 0.00.&quot;)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="Throw_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -412,7 +406,7 @@
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <av:Point x:Key="ShapeLocation">110,1309.02</av:Point>
                                                   <av:Size x:Key="ShapeSize">200,52</av:Size>
-                                                  <av:PointCollection x:Key="ConnectorLocation">310,1335.52 340,1335.52 340,1176.5 470,1176.5</av:PointCollection>
+                                                  <av:PointCollection x:Key="ConnectorLocation">310,1335.02 340,1335.02 340,1196.5 470,1196.5</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">
@@ -438,13 +432,14 @@
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <av:Point x:Key="ShapeLocation">470,1135</av:Point>
-                                                      <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                      <av:Size x:Key="ShapeSize">200,123</av:Size>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <Sequence DisplayName="Select Worklist Again" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                                                  <Sequence sap2010:Annotation.AnnotationText="Click on Select Worklist Again in SAP Fiori" DisplayName="Select Worklist Again" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_1">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
                                                     <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="992,1758" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="39441a67-6b1c-4d42-85da-673e03412c9c" Version="V2">
@@ -741,7 +736,7 @@
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <av:Point x:Key="ShapeLocation">985.5,1242.02</av:Point>
                                                   <av:Size x:Key="ShapeSize">200,52</av:Size>
-                                                  <av:PointCollection x:Key="ConnectorLocation">985.5,1268.52 955.5,1268.52 955.5,1176.5 670,1176.5</av:PointCollection>
+                                                  <av:PointCollection x:Key="ConnectorLocation">985.5,1268.02 955.5,1268.02 955.5,1196.5 670,1196.5</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_MoveFileToProcessedFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="SharePoint_MoveFileToProcessedFolder.xaml">

@@ -3,7 +3,7 @@
   "description": "Robotic Enterprise Framework",
   "main": "Main.xaml",
   "dependencies": {
-    "Capybara_Fin009_PerformerUILibrary": "[1.0.1]",
+    "Capybara_Fin009_PerformerUILibrary": "[1.0.2]",
     "KillApps": "[1.0.6]",
     "SAPFioriLogin": "[1.0.4]",
     "SharePoint.Login": "[1.0.3]",
@@ -18,7 +18,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.10.3.0",
-  "projectVersion": "1.0.18",
+  "projectVersion": "1.0.19",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,

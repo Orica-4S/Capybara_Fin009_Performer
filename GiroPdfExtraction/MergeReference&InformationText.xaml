@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,5241</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,5357</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Merge_Reference____Information_Text_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -94,7 +94,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;GiroPdf_Extraction&#xA;&#xA;[Description]:-&#xA;This workflow will Merge Reference and Information Text for every block in Gir PDF. It will also determine Unknown References in PDF.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;@io_dt_References - DataTable containing Reference Details from Giro PDF.&#xA;&#xA;[Output]:- DataTable containing Reference Details.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="Merge_Reference____Information_Text" sap:VirtualizedContainerService.HintSize="872,5176" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;GiroPdf_Extraction&#xA;&#xA;[Description]:-&#xA;This workflow will Merge Reference and Information Text for every block in Gir PDF. It will also determine Unknown References in PDF.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;@io_dt_References - DataTable containing Reference Details from Giro PDF.&#xA;&#xA;[Output]:- DataTable containing Reference Details.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="Merge_Reference____Information_Text" sap:VirtualizedContainerService.HintSize="872,5292" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strReference" />
       <Variable x:TypeArguments="x:String" Name="strInformationText" />
@@ -250,13 +250,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[io_dt_References]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="810,2358" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[io_dt_References]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="810,2474" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="To Set Unknown references" sap:VirtualizedContainerService.HintSize="776,2242" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="To Set Unknown references" sap:VirtualizedContainerService.HintSize="776,2358" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -268,6 +268,14 @@
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">[CurrentRow("MergedReferences").ToString.Trim]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Replace Semicolon with Comma" sap:VirtualizedContainerService.HintSize="714,61" sap2010:WorkflowViewState.IdRef="Assign_15">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[strMergedReference]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[strMergedReference.Replace(";",",")]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="Remove Characters" sap:VirtualizedContainerService.HintSize="714,61" sap2010:WorkflowViewState.IdRef="Assign_11">
@@ -294,7 +302,7 @@
                 <InArgument x:TypeArguments="x:String">[CurrentRow("InformationText").ToString.Trim]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Filter out References in Reference Column Starting with 9 and 7&#xA;" DisplayName="ExtractReferencesfromGiro.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="714,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GiroPdfExtraction\ExtractReferencesfromGiro.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Filter out References in Reference Column Starting with 9 and 7&#xA;" DisplayName="ExtractReferencesfromGiro.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="714,170" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GiroPdfExtraction\ExtractReferencesfromGiro.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_strReferences">[strReference]</InArgument>
                 <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_References">[dtTempRef]</OutArgument>

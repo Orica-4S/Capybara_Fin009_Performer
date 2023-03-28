@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,1287</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,4573</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Discrepency_Scenario_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -102,7 +102,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;DiscrepencyScenario&#xA;&#xA;[Description]:-&#xA;This workflow will enter discrepency amount if there is any.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_strOpenAmount - String containing Open Amount extracted from SAP.&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="Discrepency_Scenario" sap:VirtualizedContainerService.HintSize="502,1222" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;DiscrepencyScenario&#xA;&#xA;[Description]:-&#xA;This workflow will enter discrepency amount if there is any.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_strOpenAmount - String containing Open Amount extracted from SAP.&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="Discrepency_Scenario" sap:VirtualizedContainerService.HintSize="638,4508" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="intCount" />
     </Sequence.Variables>
@@ -112,10 +112,10 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started DiscrepencyScenario Workflow&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="440,565" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="576,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started DiscrepencyScenario Workflow&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="576,3866" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="538,25" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V2">
+        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="538,3638" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V2">
           <uix:NApplicationCard.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
@@ -179,7 +179,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:RetryScope>
                 <Delay Duration="[in_VerySmallDelay]" sap:VirtualizedContainerService.HintSize="442,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
-                <uix:NClick ClickType="Single" DisplayName="Click 'Header - Reference'" sap:VirtualizedContainerService.HintSize="442,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
+                <uix:NClick ClickType="Single" DisplayName="Click 'Header - Reference'" sap:VirtualizedContainerService.HintSize="442,157" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
                   <uix:NClick.Target>
                     <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="DFvssZmJCkynaV2wGc5dbA" DesignTimeRectangle="429, 246, 63, 16" DesignTimeScaleFactor="1" FriendlyName="'Header - Reference'" FullSelectorArgument="&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl aaname='Reference' tag='SPAN' innertext='Reference' /&gt;" FuzzySelectorArgument="&lt;webctrl id='application-BankStatementPP-display' /&gt;&lt;webctrl aaname='Reference' tag='SPAN' innertext='Reference' type='' class='  lsCaption--embedded' check:text='Reference' /&gt;" Guid="6eeacd53-41a0-4124-bec9-61532c8e095a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAAUCAYAAADWQYA8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJkSURBVFhH7ZatoqwgFEbvO5FMpkmTTCfRJpFMPoDJNC9gMplIpptsJhNpEslkshm/uxF/GHX03DbBsIKwBVywN/7p+x4XlkuGwyXD4ZLhcMlwcGQ0kIKBMQfvBh5LqPb9pSO6OgX3zfsJ6p3+b2Yj45ErtG1r0TVS4YEJicZ56TMNChojlJre73b6v5uNDCGbt4BeSzyYQNE4bR+p8fQYknqv7/v5tQw5y2hRZyGCIRV8BGEG1Zn2GombYlOatDWyMIBv2vwAYabQjWM3UoAlEkV0g/eL+L6REBRXqgziRieWYvzHNL9Fl8nSF4TI6nbs+7TuhWMZnUYZB2A8hx7bXjmHJ/KxjrRQmaDnYkwjK2Q5GS/k3IMwqWeeW4WM0k4Udo5BBgsQl1NaHcdbGR5+khKa4rvG9DPcUzX0d2UMzxPIVUMCOzRUv6KkGsY6XrfluIAau5x2Yj4VCumdPraanomuRDyn0UqGSnGnnaymWMIsmI2LGGQ85Cz6LN7KcE/pOMbQ3+JvxPCTv+a+hbN1Wz4X0BdN7NPEegnepsKCFbCSUSe7sVMKDR+S1Mv4J/FTmri3lJVhCrxdf+x+8MzZui2HaaLHiead2zP8xvnJcNnIOIk/lvGfJ2OHkwJqcti06bltyD3+RKVNjnfQ1RMh5aUtcisZYw3gzwraFCuqQdUzpEXZa3cj4yT+WMaqZnRUM1SOKLKbebxuy4kMgnYrYBz5a2qjqpxH44+VhxuPIdVUsdcyCLod8ojb22H1E7eVcRx/JsM86yIGd26TtJq+52jdFkfGxSXD4ZLhcMlwuGTM9PgHLZjZr9BFY70AAAAASUVORK5CYII=" InformativeScreenshot="b004167e7896f04666cde16cad5f8d33.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/V3-yNpWtS0K3U5NCY2PR8Q" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                   </uix:NClick.Target>
@@ -237,7 +237,7 @@
                       <InArgument x:TypeArguments="x:String">1</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <uix:NClick ClickType="Single" DisplayName="Click 'Input - Text for Rem/Partial Payt'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Input - Text for Rem/Partial Payt'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9cd83c07-8a2d-47c7-b365-bb13e72b883e" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="pZF6hvPbb0uN_aEVJeXbMA" DesignTimeRectangle="1075, 251, 229, 14" DesignTimeScaleFactor="0.8999999761581421" FriendlyName="'Input - Text for Rem/Partial Payt'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl name='InputField' tableCol='15' tableRow='{0}' /&gt;&quot;, strRowNumber)]" FuzzySelectorArgument="&lt;webctrl id='*application-BankStatement*' /&gt;&lt;webctrl name='InputField' tag='SPAN' type='' class='lsField__input' aaname='' /&gt;" Guid="24b7158f-e82d-496a-88a4-a8c1cd6604ed" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQMAAAAUCAYAAACJdVhcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABfSURBVHhe7dRBAcAwEMOw8edZAkegWz0YlT5BED/7s9Y6A1zo/H9mthjA5cQAiBgAEQMgYgBEDICIARAxACIGQMQAiBgAEQMgYgBEDICIARAxACIGQMQAiBgA+WMw+wXZh5SFp98jAAAAAABJRU5ErkJggg==" InformativeScreenshot="d09dd9aa9ec51022d9b5d3e181cdcb22.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/0DRURr2g3kOBBvfDpcAkFA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit Bank Statement Item' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                     </uix:NClick.Target>
@@ -307,17 +307,17 @@
           </uix:NApplicationCard.TargetApp>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </uix:NApplicationCard>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,402" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="542,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -338,6 +338,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ended DiscrepencyScenario workflow&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="576,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ended DiscrepencyScenario workflow&quot;]" />
   </Sequence>
 </Activity>

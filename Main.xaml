@@ -115,7 +115,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title: Capybara_Fin009_Performer][Version 1.0.24]&#xA;&#xA;[Process description: Cabybara_FIN009 process refers to the process of checking and viewing unprocessed invoices, filing data from invoices to ERP application, and then save details in system. Match the SAP reference number with the remittance details and fetch the amount to enter SAP]&#xA;&#xA;[Applications Involved: MsEdge,Outlook,MsExcel]&#xA;&#xA;[Developer: sahil.baid@orica.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687,889" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title: Capybara_Fin009_Performer][Version 1.0.25]&#xA;&#xA;[Process description: Cabybara_FIN009 process refers to the process of checking and viewing unprocessed invoices, filing data from invoices to ERP application, and then save details in system. Match the SAP reference number with the remittance details and fetch the amount to enter SAP]&#xA;&#xA;[Applications Involved: MsEdge,Outlook,MsExcel]&#xA;&#xA;[Developer: sahil.baid@orica.com]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687,889" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

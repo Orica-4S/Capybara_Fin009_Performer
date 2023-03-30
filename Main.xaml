@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,954</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850,954</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="78">
@@ -239,7 +239,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="586,1279" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,188" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
                 <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="540,807" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
@@ -720,7 +720,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,120" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="624,1943" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
                                 <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="578,1798" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -764,17 +764,37 @@
                                             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Info" Message="[&quot;Send Success Email&quot;]" />
                                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Fin009_SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="Fin009_SendMail.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="x:Boolean" x:Key="in_bln_SuccessEmail">True</InArgument>
-                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_int_NoOfAttachments">1</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">[Config("ProcessName").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessOwnerEmail">[Config("ProcessOwnerEmail").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentsList">[Config("StatusReport_FileName").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessOwner">[Config("ProcessOwner").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_str_Message">[Config("EmailMessage_Success").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentPath">[{strStatusReportPath}]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailTo">[Config("EmailTo_Business").ToString+";"+Config("EmailTo_Support").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">[Config("EmailSubject_Success").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dictConfig">[Config]</InArgument>
+                                                <InArgument x:TypeArguments="x:Boolean" x:Key="in_bln_SuccessEmail">
+                                                  <Literal x:TypeArguments="x:Boolean" Value="True" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_int_NoOfAttachments">
+                                                  <Literal x:TypeArguments="x:Int32" Value="1" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ProcessName&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessOwnerEmail">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ProcessOwnerEmail&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentsList">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;StatusReport_FileName&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessOwner">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ProcessOwner&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_str_Message">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailMessage_Success&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentPath">
+                                                  <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{strStatusReportPath}" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailTo" />
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailSubject_Success&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dictConfig">
+                                                  <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                                                </InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                           </Sequence>
@@ -789,17 +809,37 @@
                                             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[&quot;Send Failure Email&quot;]" />
                                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Fin009_SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="Fin009_SendMail.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="x:Boolean" x:Key="in_bln_SuccessEmail">False</InArgument>
-                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_int_NoOfAttachments">1</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">[Config("ProcessName").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessOwnerEmail">[Config("ProcessOwnerEmail").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentsList">[Config("StatusReport_FileName").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessOwner">[Config("ProcessOwner").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_str_Message">[Config("EmailMessage_Failure").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentPath">[{strStatusReportPath}]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailTo">[Config("EmailTo_Business").ToString+";"+Config("EmailTo_Support").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">[Config("EmailSubject_Failure").ToString]</InArgument>
-                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dictConfig">[Config]</InArgument>
+                                                <InArgument x:TypeArguments="x:Boolean" x:Key="in_bln_SuccessEmail">
+                                                  <Literal x:TypeArguments="x:Boolean" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_int_NoOfAttachments">
+                                                  <Literal x:TypeArguments="x:Int32" Value="1" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ProcessName&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessOwnerEmail">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ProcessOwnerEmail&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentsList">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;StatusReport_FileName&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessOwner">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ProcessOwner&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_str_Message">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailMessage_Failure&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="s:String[]" x:Key="in_AttachmentPath">
+                                                  <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{strStatusReportPath}" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailTo" />
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_EmailSubject">
+                                                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailSubject_Failure&quot;).ToString" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dictConfig">
+                                                  <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                                                </InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                           </Sequence>

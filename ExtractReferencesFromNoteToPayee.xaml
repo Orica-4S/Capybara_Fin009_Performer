@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,1347</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,2642</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Extract_References_from_Note_To_Payee_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -97,7 +97,7 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;ExtractReferencesFromNoteToPayee&#xA;&#xA;[Description]:-&#xA;This workflow will extract Reference Numbers from Note To Payee&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_strNoteToPayee - String containing Note To Payee data.&#xA;in_strCompanyCode - String containing Company Code.&#xA;&#xA;[Output]:-&#xA;out_dt_References - DataTable containing Reference Numbers&#xA;out_booReferenceExists - Boolean containing Flag depending on Reference Numbers exists or not.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="Extract_References_from_Note_To_Payee" sap:VirtualizedContainerService.HintSize="502,1282" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;ExtractReferencesFromNoteToPayee&#xA;&#xA;[Description]:-&#xA;This workflow will extract Reference Numbers from Note To Payee&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_strNoteToPayee - String containing Note To Payee data.&#xA;in_strCompanyCode - String containing Company Code.&#xA;&#xA;[Output]:-&#xA;out_dt_References - DataTable containing Reference Numbers&#xA;out_booReferenceExists - Boolean containing Flag depending on Reference Numbers exists or not.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="Extract_References_from_Note_To_Payee" sap:VirtualizedContainerService.HintSize="738,2577" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="References" />
     </Sequence.Variables>
@@ -107,16 +107,16 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Started Extract References From NoteToPayee Workflow&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="440,565" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="676,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Started Extract References From NoteToPayee Workflow&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="676,1890" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,472" sap2010:WorkflowViewState.IdRef="Sequence_17">
+        <Sequence sap:VirtualizedContainerService.HintSize="638,1662" sap2010:WorkflowViewState.IdRef="Sequence_17">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Replace NewLine" sap:VirtualizedContainerService.HintSize="716,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign DisplayName="Replace NewLine" sap:VirtualizedContainerService.HintSize="576,61" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[in_strNoteToPayee]</OutArgument>
             </Assign.To>
@@ -124,155 +124,84 @@
               <InArgument x:TypeArguments="x:String">[in_strNoteToPayee.Replace(Environment.NewLine,"")]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:BuildDataTable DataTable="[out_dt_References]" DisplayName="Build References Data Table" sap:VirtualizedContainerService.HintSize="716,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;References&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-          <If sap2010:Annotation.AnnotationText="If Comapny Code is 1057" Condition="[in_strCompanyCode=&quot;1057&quot;]" sap:VirtualizedContainerService.HintSize="716,56" sap2010:WorkflowViewState.IdRef="If_6">
+          <ui:BuildDataTable DataTable="[out_dt_References]" DisplayName="Build References Data Table" sap:VirtualizedContainerService.HintSize="576,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;References&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+          <ui:Matches BuilderPattern="(?&lt;!\d)0*9[0-9]{7,8}(?!\d)|(?&lt;!\d)0*16{1}\d{8}(?!\d)|(?&lt;!\d)0*17{1}\d{8}(?!\d)|(?&lt;!\d)0*7{1}\d{7}(?!\d)|(?&lt;!\d)0*18{1}\d{8}(?!\d)|(?&lt;!\d)0*3{1}\d{7}(?!\d)" DisplayName="Regex To Extract Reference Numbers " sap:VirtualizedContainerService.HintSize="576,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[in_strNoteToPayee]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;!\\d)0*9[0-9]{7,8}(?!\\d)|(?&lt;!\\d)0*16{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*17{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*7{1}\\d{7}(?!\\d)|(?&lt;!\\d)0*18{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*3{1}\\d{7}(?!\\d)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;!\d)0*9[0-9]{7,8}(?!\d)|(?&lt;!\d)0*16{1}\d{8}(?!\d)|(?&lt;!\d)0*17{1}\d{8}(?!\d)|(?&lt;!\d)0*7{1}\d{7}(?!\d)|(?&lt;!\d)0*18{1}\d{8}(?!\d)|(?&lt;!\d)0*3{1}\d{7}(?!\d)" RegexOption="IgnoreCase, Compiled" Result="[References]" />
+          <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="576,1143" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[References]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="currentItem" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,1018" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="strReferenceNumber" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign Reference Number" sap:VirtualizedContainerService.HintSize="478,61" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strReferenceNumber]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[currentItem.ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Remove Leading Zeros" sap:VirtualizedContainerService.HintSize="478,61" sap2010:WorkflowViewState.IdRef="Assign_8">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strReferenceNumber]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[strReferenceNumber.Replace("0"," ").TrimStart.ToString.Replace(" ","0")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If sap2010:Annotation.AnnotationText="If Length of Reference Number is 8 or 9 and starts with 9" Condition="[strReferenceNumber.StartsWith(&quot;9&quot;) And (Len(strReferenceNumber)=9 Or Len(strReferenceNumber)=8)]" DisplayName="If Length of Reference Number is 8 or 9 and starts with 9" sap:VirtualizedContainerService.HintSize="478,479" sap2010:WorkflowViewState.IdRef="If_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="400,172" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Extract First 8 digits" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_9">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[strReferenceNumber]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[strReferenceNumber.Substring(0,8)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{strReferenceNumber}]" DataTable="[out_dt_References]" DisplayName="Add Reference Number Data Row" sap:VirtualizedContainerService.HintSize="478,186" sap2010:WorkflowViewState.IdRef="AddDataRow_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:AddDataRow>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="638,1192" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:Matches BuilderPattern="(?&lt;!\d)0*9[0-9]{7,}|(?&lt;!\d)0*16{1}\d{8}(?!\d)|(?&lt;!\d)0*17{1}\d{8}(?!\d)|(?&lt;!\d)0*7{1}\d{7}(?!\d)|(?&lt;!\d)0*18{1}\d{8}(?!\d)|(?&lt;!\d)0*3{1}\d{7}(?!\d)" DisplayName="Regex To Extract Reference Numbers For 1057 CompanyCode" sap:VirtualizedContainerService.HintSize="576,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[in_strNoteToPayee]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;!\\d)0*9[0-9]{7,}|(?&lt;!\\d)0*16{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*17{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*7{1}\\d{7}(?!\\d)|(?&lt;!\\d)0*18{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*3{1}\\d{7}(?!\\d)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;!\d)0*9[0-9]{7,}|(?&lt;!\d)0*16{1}\d{8}(?!\d)|(?&lt;!\d)0*17{1}\d{8}(?!\d)|(?&lt;!\d)0*7{1}\d{7}(?!\d)|(?&lt;!\d)0*18{1}\d{8}(?!\d)|(?&lt;!\d)0*3{1}\d{7}(?!\d)" RegexOption="IgnoreCase, Compiled" Result="[References]" />
-                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="576,981" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[References]">
-                  <ui:ForEach.Body>
-                    <ActivityAction x:TypeArguments="x:Object">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="x:Object" Name="currentItem" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,857" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="strReferenceNumber" />
-                        </Sequence.Variables>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Assign DisplayName="Assign Reference Number" sap:VirtualizedContainerService.HintSize="478,61" sap2010:WorkflowViewState.IdRef="Assign_7">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[strReferenceNumber]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[currentItem.ToString]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <Assign DisplayName="Remove Leading Zeros" sap:VirtualizedContainerService.HintSize="478,61" sap2010:WorkflowViewState.IdRef="Assign_8">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[strReferenceNumber]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[strReferenceNumber.Replace("0"," ").TrimStart.ToString.Replace(" ","0")]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <If sap2010:Annotation.AnnotationText="If Length of Reference Number is 8 or 9 and starts with 9" Condition="[strReferenceNumber.StartsWith(&quot;9&quot;) And (Len(strReferenceNumber)=9 Or Len(strReferenceNumber)=8)]" DisplayName="If Length of Reference Number is 8 or 9 and starts with 9" sap:VirtualizedContainerService.HintSize="478,479" sap2010:WorkflowViewState.IdRef="If_7">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="400,172" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Extract First 8 digits" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_9">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="x:String">[strReferenceNumber]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[strReferenceNumber.Substring(0,8)]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                            </Sequence>
-                          </If.Then>
-                        </If>
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{strReferenceNumber}]" DataTable="[out_dt_References]" DisplayName="Add Reference Number Data Row" sap:VirtualizedContainerService.HintSize="478,25" sap2010:WorkflowViewState.IdRef="AddDataRow_5">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </ui:AddDataRow>
-                      </Sequence>
-                    </ActivityAction>
-                  </ui:ForEach.Body>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ForEach>
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="498,876" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:Matches BuilderPattern="(?&lt;!\d)0*9{1}\d{7}(?!\d)|(?&lt;!\d)0*16{1}\d{8}(?!\d)|(?&lt;!\d)0*17{1}\d{8}(?!\d)|(?&lt;!\d)0*7{1}\d{7}(?!\d)|(?&lt;!\d)0*18{1}\d{8}(?!\d)|(?&lt;!\d)0*3{1}\d{7}(?!\d)" DisplayName="Regex To Extract Reference Numbers" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[in_strNoteToPayee]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;!\\d)0*9{1}\\d{7}(?!\\d)|(?&lt;!\\d)0*16{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*17{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*7{1}\\d{7}(?!\\d)|(?&lt;!\\d)0*18{1}\\d{8}(?!\\d)|(?&lt;!\\d)0*3{1}\\d{7}(?!\\d)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;!\d)0*9{1}\d{7}(?!\d)|(?&lt;!\d)0*16{1}\d{8}(?!\d)|(?&lt;!\d)0*17{1}\d{8}(?!\d)|(?&lt;!\d)0*7{1}\d{7}(?!\d)|(?&lt;!\d)0*18{1}\d{8}(?!\d)|(?&lt;!\d)0*3{1}\d{7}(?!\d)" RegexOption="IgnoreCase, Compiled" Result="[References]" />
-                <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For each row in References Table Add Data Row To Output Reference DataTable" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="436,665" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[References]">
-                  <ui:ForEach.Body>
-                    <ActivityAction x:TypeArguments="str:Match">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="str:Match" Name="currentItem" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,499" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="strReferenceNumber" />
-                        </Sequence.Variables>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Assign DisplayName="Assign Reference Number" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_10">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[strReferenceNumber]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[currentItem.ToString]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <Assign DisplayName="Remove Leading Zeros" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_11">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">[strReferenceNumber]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[strReferenceNumber.Replace("0"," ").TrimStart.ToString.Replace(" ","0")]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{strReferenceNumber}]" DataTable="[out_dt_References]" DisplayName="Add Reference Number Data Row" sap:VirtualizedContainerService.HintSize="338,186" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
-                      </Sequence>
-                    </ActivityAction>
-                  </ui:ForEach.Body>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ForEach>
-              </Sequence>
-            </If.Else>
-          </If>
-          <If sap2010:Annotation.AnnotationText="If Count of Output Reference DatatTable &gt;0" Condition="[out_dt_References.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="716,67" sap2010:WorkflowViewState.IdRef="If_5">
+          </ui:ForEach>
+          <If sap2010:Annotation.AnnotationText="If Count of Output Reference DataTable &gt;0" Condition="[out_dt_References.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="576,67" sap2010:WorkflowViewState.IdRef="If_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -302,10 +231,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,402" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="642,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -326,6 +255,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Ended Extract References From NoteToPayee Workflow&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="676,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Ended Extract References From NoteToPayee Workflow&quot;]" />
   </Sequence>
 </Activity>

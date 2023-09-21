@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,1398</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>949,1398</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SelectTransaction_ReadNoteToPayee__1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -100,7 +100,7 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;SelectTransaction&amp;ReadNoteToPayee&#xA;&#xA;[Description]:-&#xA;This workflow will select Business Partner and read Note To Payee in Edit Bank Statement Screen in SAP Fiori.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_SmallDelay - Delay&#xA;&#xA;[Output]:-&#xA;out_strNoteToPayee - String containing Note To Payee.&#xD;&#xA;out_strOpenAmount - String containing Open Amount from SAP.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="SelectTransaction_ReadNoteToPayee" sap:VirtualizedContainerService.HintSize="959,1333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;SelectTransaction&amp;ReadNoteToPayee&#xA;&#xA;[Description]:-&#xA;This workflow will select Business Partner and read Note To Payee in Edit Bank Statement Screen in SAP Fiori.&#xA;Enitre workflow is enclosed in try catch, in case of exceptions, a appropriate message will be logged and error will be rethrown to the calling workflow.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;in_SmallDelay - Delay&#xA;&#xA;[Output]:-&#xA;out_strNoteToPayee - String containing Note To Payee.&#xA;out_strOpenAmount - String containing Open Amount from SAP.&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error." DisplayName="SelectTransaction_ReadNoteToPayee" sap:VirtualizedContainerService.HintSize="959,1333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -123,16 +123,16 @@
           <av:PointCollection x:Key="ConnectorLocation">400,400.5 400,457.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="TryCatch For Select Transaction" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch DisplayName="TryCatch For Select Transaction" sap:VirtualizedContainerService.HintSize="1154,2598" sap2010:WorkflowViewState.IdRef="TryCatch_1">
         <TryCatch.Try>
-          <Sequence DisplayName="Select Transaction" sap:VirtualizedContainerService.HintSize="400,80" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Select Transaction" sap:VirtualizedContainerService.HintSize="1116,2370" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="booTransactionNameExists" />
               <Variable x:TypeArguments="x:String" Name="strTransactionName" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -157,7 +157,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NClick ClickType="Single" DisplayName="Click 'Input_Field-Transaction'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f53c0346-41d1-4e0d-9bda-fad122a060d0" Version="V3">
+                            <uix:NClick ClickType="Single" DelayBefore="5" DisplayName="Click 'Input_Field-Transaction'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f53c0346-41d1-4e0d-9bda-fad122a060d0" Version="V3">
                               <uix:NClick.Target>
                                 <uix:TargetAnchorable BrowserURL="https://sapem-sp.es.orica.net/sap/bc/gui/sap/its/webgui;~service=3200;~rfcHostName=uswiemxcivm00.es.orica.net;~sncNameR3=p%2fkrb5%3aSAPServiceEMX%2fuswiemxcivm00.es.orica.net%40ORI.ORICA.NET;~sncQoPR3=3?%7etransaction=FEB_BSPROC&amp;%7enosplash=1&amp;sap-client=010&amp;sap-language=EN&amp;sap-ie=edge&amp;sap-theme=sap_belize&amp;sap-target-navmode=explace&amp;sap-keepclientsession=1&amp;sap-shell=FLP1.60.40#" ContentHash="ytornI1ZB0OAjIteUHpzSQ" DesignTimeRectangle="162, 454, 276, 21" DesignTimeScaleFactor="0.8999999761581421" FriendlyName="'Input_Field-Transaction'" FullSelectorArgument="&lt;webctrl id='application-BankStatementPP-display' /&gt;&lt;webctrl tag='INPUT' aaname='Transaction' /&gt;" FuzzySelectorArgument="&lt;webctrl id='application-BankStatementPP-display' /&gt;&lt;webctrl tag='INPUT' aaname='Transaction' type='text' class='lsField__input' /&gt;" Guid="acd44be7-a263-4888-a393-a85f66f68942" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARgAAAAZCAYAAADqpTGdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABnSURBVHhe7dQxAQAwDASh+vf6GlIVtzFggbftAAqCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCATKCASK7D1SQNBrYe416AAAAAElFTkSuQmCC" InformativeScreenshot="43a917001c5bf4dbd92ecc9cfcf39683.png" Reference="HLXiEbo_V0mRw1lnkGk7zg/OgeSKkgfu0SfPBG8uca5YA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Bank Statement*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                               </uix:NClick.Target>
@@ -257,10 +257,10 @@
           </Sequence>
         </TryCatch.Try>
         <TryCatch.Catches>
-          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,402" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1120,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -268,7 +268,7 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <Sequence sap:VirtualizedContainerService.HintSize="400,335" sap2010:WorkflowViewState.IdRef="Sequence_13">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -458,19 +458,19 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="950,926" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" OpenMode="Never" ScopeGuid="0c1f8a26-9132-41fa-a74e-1b76b3c28d41" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edit Bank Statement Item" sap:VirtualizedContainerService.HintSize="950,886" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" OpenMode="Never" ScopeGuid="0c1f8a26-9132-41fa-a74e-1b76b3c28d41" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="916,709" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="916,669" sap2010:WorkflowViewState.IdRef="Sequence_16">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NCheckState DisplayName="Check App State 'StatusBar_ErrorMessage'" sap:VirtualizedContainerService.HintSize="854,594" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="0c1f8a26-9132-41fa-a74e-1b76b3c28d41" Timeout="[in_SmallDelay]" Version="V3">
+                    <uix:NCheckState DisplayName="Check App State 'StatusBar_ErrorMessage'" sap:VirtualizedContainerService.HintSize="854,554" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="0c1f8a26-9132-41fa-a74e-1b76b3c28d41" Timeout="[in_SmallDelay]" Version="V3">
                       <uix:NCheckState.IfExists>
                         <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,337" sap2010:WorkflowViewState.IdRef="Sequence_17">
                           <sap:WorkflowViewStateService.ViewState>

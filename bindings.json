@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "resources": [
+    {
+      "resource": "bucket",
+      "metadata": {
+        "name": {
+          "defaultValue": "in_dictConfig(\"StorageBucket_EmailTemplate\").ToString",
+          "isExpression": true
+        },
+        "folderPath": {
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "name": {
+          "defaultValue": "in_Config(\"OrchestratorQueueName\").ToString",
+          "isExpression": true
+        },
+        "folderPath": {
+          "defaultValue": "in_Config(\"OrchestratorQueueFolder\").ToString",
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "asset",
+      "metadata": {
+        "name": {
+          "defaultValue": "row(\"Asset\").ToString",
+          "isExpression": true
+        },
+        "folderPath": {
+          "defaultValue": "row(\"OrchestratorAssetFolder\").ToString",
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "folderPath": {
+          "defaultValue": "in_Config(\"OrchestratorQueueFolder\").ToString",
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "bucket",
+      "metadata": {
+        "name": {
+          "defaultValue": "Config Files",
+          "isExpression": false
+        },
+        "folderPath": {
+          "defaultValue": "Capybara Processes/Fin009-Account Payable",
+          "isExpression": false
+        }
+      }
+    }
+  ]
+}

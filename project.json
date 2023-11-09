@@ -3,7 +3,7 @@
   "description": "Robotic Enterprise Framework",
   "main": "Main.xaml",
   "dependencies": {
-    "Capybara_Fin009_PerformerUILibrary": "[1.0.9]",
+    "Capybara_Fin009_PerformerUILibrary": "[1.0.39]",
     "KillApps": "[1.0.6]",
     "SAPFioriLogin": "[1.0.4]",
     "SharePoint.Login": "[1.0.3]",
